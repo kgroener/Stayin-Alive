@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simulation.World.Species;
+using Simulation.World.Specimens;
 
 namespace Simulation.World
 {
@@ -17,7 +17,7 @@ namespace Simulation.World
             }
         }
 
-        public static IEnumerable<ISpecieInternal> Species
+        public static IEnumerable<ISpecimenInternal> Specimens
         {
             get
             {
