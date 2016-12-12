@@ -2,7 +2,7 @@
 using System.Numerics;
 using System.Windows.Media;
 
-namespace Simulation.Interface.Specimens
+namespace Simulation.Interface.Specimen
 {
     public interface ISpecimen
     {

@@ -1,6 +1,6 @@
 ﻿using Simulation.Interface.Models;
 
-namespace Simulation.World.Specimens.Attributes.Sensors
+namespace Simulation.World.Specimen.Attributes.Sensors
 {
     internal abstract class SpecimenSensorBase : ISpecimenSensorInternal
     {

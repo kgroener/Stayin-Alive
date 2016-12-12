@@ -1,4 +1,4 @@
-﻿using Simulation.Interface.Specimens;
+﻿using Simulation.Interface.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Numerics;

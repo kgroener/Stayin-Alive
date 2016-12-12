@@ -1,6 +1,6 @@
 ﻿using Simulation.Interface.Models;
 
-namespace Simulation.World.Specimens.Attributes.Actuators
+namespace Simulation.World.Specimen.Attributes.Actuators
 {
     internal abstract class SpecimenActuatorBase : ISpecimenActuatorInternal
     {

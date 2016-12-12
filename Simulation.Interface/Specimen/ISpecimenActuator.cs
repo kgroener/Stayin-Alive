@@ -1,6 +1,6 @@
 ﻿using Simulation.Interface.Models;
 
-namespace Simulation.Interface.Specimens
+namespace Simulation.Interface.Specimen
 {
     public interface ISpecimenActuator
     {

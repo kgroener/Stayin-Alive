@@ -1,6 +1,6 @@
-﻿using Simulation.Interface.Specimens;
-using Simulation.World.Specimens.Attributes.Actuators;
-using Simulation.World.Specimens.Attributes.Sensors;
+﻿using Simulation.Interface.Specimen;
+using Simulation.World.Specimen.Attributes.Actuators;
+using Simulation.World.Specimen.Attributes.Sensors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simulation.World.Specimens.Attributes
+namespace Simulation.World.Specimen.Attributes
 {
     internal interface ISpecimenAttributeInternal : ISpecimenAttribute
     {

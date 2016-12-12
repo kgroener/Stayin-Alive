@@ -1,6 +1,6 @@
 ﻿using Simulation.Models;
 
-namespace Simulation.World.Specimens.Attributes.Actuators
+namespace Simulation.World.Specimen.Attributes.Actuators
 {
     internal class ForceActuator : SpecimenActuatorBase
     {

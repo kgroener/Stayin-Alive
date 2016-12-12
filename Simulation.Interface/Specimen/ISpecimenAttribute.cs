@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Simulation.Interface.Specimens
+namespace Simulation.Interface.Specimen
 {
     public interface ISpecimenAttribute
     {

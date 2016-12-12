@@ -1,6 +1,6 @@
-﻿using Simulation.Interface.Specimens;
+﻿using Simulation.Interface.Specimen;
 
-namespace Simulation.World.Specimens.Attributes.Sensors
+namespace Simulation.World.Specimen.Attributes.Sensors
 {
     interface ISpecimenSensorInternal : ISpecimenSensor
     {

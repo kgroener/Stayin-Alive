@@ -1,11 +1,11 @@
-﻿using Simulation.World.Specimens.Attributes.Actuators;
-using Simulation.World.Specimens.Attributes.Sensors;
+﻿using Simulation.World.Specimen.Attributes.Actuators;
+using Simulation.World.Specimen.Attributes.Sensors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
 
-namespace Simulation.World.Specimens.Attributes
+namespace Simulation.World.Specimen.Attributes
 {
     internal class EyeAttribute : SpecimenAttributeBase
     {

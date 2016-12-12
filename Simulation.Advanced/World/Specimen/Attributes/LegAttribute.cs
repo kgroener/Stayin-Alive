@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simulation.World.Specimens.Attributes.Actuators;
-using Simulation.World.Specimens.Attributes.Sensors;
+using Simulation.World.Specimen.Attributes.Actuators;
+using Simulation.World.Specimen.Attributes.Sensors;
 
-namespace Simulation.World.Specimens.Attributes
+namespace Simulation.World.Specimen.Attributes
 {
     internal class LegAttribute : SpecimenAttributeBase
     {

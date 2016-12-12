@@ -1,6 +1,6 @@
-﻿using Simulation.Interface.Specimens;
+﻿using Simulation.Interface.Specimen;
 
-namespace Simulation.World.Specimens.Attributes.Actuators
+namespace Simulation.World.Specimen.Attributes.Actuators
 {
     interface ISpecimenActuatorInternal : ISpecimenActuator
     {

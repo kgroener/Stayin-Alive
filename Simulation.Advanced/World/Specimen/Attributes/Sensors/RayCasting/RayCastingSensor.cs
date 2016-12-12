@@ -4,7 +4,7 @@ using Simulation.Interface.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simulation.World.Specimens.Attributes.Sensors
+namespace Simulation.World.Specimen.Attributes.Sensors
 {
     internal abstract class RayCastingSensor : SpecimenSensorBase, IRotateable
     {

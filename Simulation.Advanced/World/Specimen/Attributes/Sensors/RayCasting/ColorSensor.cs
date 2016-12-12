@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
 
-namespace Simulation.World.Specimens.Attributes.Sensors
+namespace Simulation.World.Specimen.Attributes.Sensors
 {
     internal class ColorSensor : RayCastingSensor
     {

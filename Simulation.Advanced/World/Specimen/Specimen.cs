@@ -1,14 +1,14 @@
 ﻿using Simulation.Calculations;
-using Simulation.Interface.Specimens;
+using Simulation.Interface.Specimen;
 using Simulation.World.Physics;
-using Simulation.World.Specimens.Attributes;
+using Simulation.World.Specimen.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Windows.Media;
 
-namespace Simulation.World.Specimens
+namespace Simulation.World.Specimen
 {
     internal class Specimen : ISpecimenInternal
     {

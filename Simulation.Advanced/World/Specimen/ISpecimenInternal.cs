@@ -1,8 +1,8 @@
-﻿using Simulation.World.Specimens.Attributes;
+﻿using Simulation.World.Specimen.Attributes;
 using System;
 using System.Collections.Generic;
 
-namespace Simulation.World.Specimens
+namespace Simulation.World.Specimen
 {
     internal interface ISpecimenInternal : IWorldObject
     {

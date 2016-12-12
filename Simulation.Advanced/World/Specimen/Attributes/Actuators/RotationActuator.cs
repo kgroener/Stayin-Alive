@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simulation.World.Specimens.Attributes.Actuators
+namespace Simulation.World.Specimen.Attributes.Actuators
 {
     internal class RotationActuator : SpecimenActuatorBase
     {
