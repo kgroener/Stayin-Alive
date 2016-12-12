@@ -23,7 +23,7 @@ namespace Simulation.World.Specimen
         {
             var allowedGenerationSize = Math.Max(1, maximumWorldPopulation / SpecimenCount);
 
-            var specimenAbstracts = SpecimenFactories.SelectMany((v) => v.CreateGeneration(allowedGenerationSize));
+            var specimenAbstracts = SpecimenFactories.SelectMany((v) => v.CreateGeneration(allowedGenerationSize).Take(allowedGenerationSize));
 
             var specimen = specimenAbstracts.Select(s => new Specimen(world, s));
 
