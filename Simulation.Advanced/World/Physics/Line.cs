@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Simulation.Interface.Models
+namespace Simulation.World.Physics
 {
     public struct Line
     {

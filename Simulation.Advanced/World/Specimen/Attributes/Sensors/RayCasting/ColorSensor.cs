@@ -11,7 +11,8 @@ namespace Simulation.World.Specimen.Attributes.Sensors
         private readonly Color _sensitivity;
         private readonly float _totalSensitivity;
 
-        public ColorSensor(ISpecimenInternal specimen, double directionRadians, double rangePixels, Color colorSensitivity) : base(specimen, directionRadians)
+        public ColorSensor(ISpecimenInternal specimen, double directionRadians, double rangePixels, Color colorSensitivity)
+            : base(specimen, directionRadians)
         {
             _rangePixels = rangePixels;
             _sensitivity = colorSensitivity;

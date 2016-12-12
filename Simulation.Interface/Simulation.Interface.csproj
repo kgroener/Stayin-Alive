@@ -56,7 +56,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Line.cs" />
     <Compile Include="Models\MinusOneToOneRange.cs" />
     <Compile Include="Specimen\ISpecimen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

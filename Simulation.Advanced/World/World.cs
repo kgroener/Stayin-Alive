@@ -1,28 +1,38 @@
-﻿using System;
+﻿using Simulation.World.Specimen;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Simulation.World.Specimen;
 
 namespace Simulation.World
 {
-    internal static class SimulationWorld
+    internal class SimulationWorld
     {
-        public static IEnumerable<IWorldObject> Objects
+        private List<IWorldObject> _objects;
+        private IEnumerable<ISpecimenInternal> _population;
+
+        public IEnumerable<IWorldObject> Objects => _population.Concat(_objects);
+
+        public IEnumerable<ISpecimenInternal> Population => _population;
+
+        public SimulationWorld()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            _objects = new List<IWorldObject>();
+            _population = Enumerable.Empty<ISpecimenInternal>();
         }
 
-        public static IEnumerable<ISpecimenInternal> Specimen
+        internal void Populate(IEnumerable<Specimen.Specimen> specimen)
         {
-            get
+            _population = specimen.ToArray();
+        }
+
+        internal void SpawnObject(IWorldObject obj)
+        {
+            if (obj is ISpecimenInternal)
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException("Directly spawnig specimen is prohibited, use populate method instead");
             }
+
+            _objects.Add(obj);
         }
     }
 }

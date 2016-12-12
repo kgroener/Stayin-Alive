@@ -24,6 +24,6 @@ namespace Simulation.World.Specimen.Attributes.Sensors
             _sensorValue = value;
         }
 
-        public abstract void Update();
+        public abstract void Update(SimulationWorld world);
     }
 }

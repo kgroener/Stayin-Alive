@@ -1,5 +1,4 @@
 ﻿using Simulation.World.Specimen.Attributes;
-using System;
 using System.Collections.Generic;
 
 namespace Simulation.World.Specimen
@@ -16,8 +15,10 @@ namespace Simulation.World.Specimen
         double ActualSpeed { get; }
         double ActualAngularSpeed { get; }
 
-        IEnumerable<ISpecimenAttributeInternal> Attributes { get; }
+        double HealthPoints { get; }
+        void TakeDamage(double damage);
+        void Heal(double health);
 
-        void Update(TimeSpan lastUpdateDuration);
+        IEnumerable<ISpecimenAttributeInternal> Attributes { get; }
     }
 }

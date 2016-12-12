@@ -1,6 +1,6 @@
 ﻿using Simulation.Contracts;
-using Simulation.World.Physics;
 using Simulation.Interface.Models;
+using Simulation.World.Physics;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +17,7 @@ namespace Simulation.World.Specimen.Attributes.Sensors
 
         public double RotationRadians { get; set; }
 
-        public sealed override void Update()
+        public sealed override void Update(SimulationWorld world)
         {
             Line ray = new Line()
             {
@@ -27,7 +27,7 @@ namespace Simulation.World.Specimen.Attributes.Sensors
 
             List<IWorldObject> rayCastResults = new List<IWorldObject>();
 
-            foreach (var obj in SimulationWorld.Objects.Where(o => o != Specimen))
+            foreach (var obj in world.Objects.Where(o => o != Specimen))
             {
                 var points = obj.PolygonPoints.ToArray();
                 for (int i = 0; i < points.Length; i++)

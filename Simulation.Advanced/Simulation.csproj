@@ -81,8 +81,11 @@
     <Compile Include="Contracts\IRotateable.cs" />
     <Compile Include="Composition\CompositionContainer.cs" />
     <Compile Include="Calculations\AreaCalculations.cs" />
+    <Compile Include="Simulation.cs" />
+    <Compile Include="SimulationSettings.cs" />
     <Compile Include="World\IWorldObject.cs" />
     <Compile Include="World\Physics\CollisionDetector.cs" />
+    <Compile Include="World\Physics\Line.cs" />
     <Compile Include="World\Specimen\Attributes\Actuators\AngularForceActuator.cs" />
     <Compile Include="World\Specimen\Attributes\Actuators\ISpecimenActuatorInternal.cs" />
     <Compile Include="World\Specimen\Attributes\Actuators\ForceActuator.cs" />

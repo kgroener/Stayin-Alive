@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Windows.Media;
 
@@ -10,5 +11,7 @@ namespace Simulation.World
         double RotationRadians { get; }
         IEnumerable<Vector2> PolygonPoints { get; }
         Color Color { get; }
+
+        void Update(TimeSpan lastUpdateDuration);
     }
 }

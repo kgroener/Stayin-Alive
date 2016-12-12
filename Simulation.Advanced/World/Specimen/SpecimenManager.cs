@@ -1,18 +1,33 @@
 ﻿using Simulation.Interface.Specimen;
 using Simulation.Models;
+using System;
 using System.Collections.Generic;
 using System.Composition;
+using System.Linq;
 
 namespace Simulation.World.Specimen
 {
-    public class SpecimensManager
+    internal class SpecimenManager
     {
         [ImportMany]
-        public IEnumerable<ISpecimenFactory> Specimen { get; set; }
+        public IEnumerable<ISpecimenFactory> SpecimenFactories { get; set; }
 
-        public SpecimensManager()
+        public SpecimenManager()
         {
             CompositionContainer.Resolve(this);
+        }
+
+        public int SpecimenCount => SpecimenFactories.Count();
+
+        public void PopulateWorld(SimulationWorld world, int maximumWorldPopulation)
+        {
+            var allowedGenerationSize = Math.Max(1, maximumWorldPopulation / SpecimenCount);
+
+            var specimenAbstracts = SpecimenFactories.SelectMany((v) => v.CreateGeneration(allowedGenerationSize));
+
+            var specimen = specimenAbstracts.Select(s => new Specimen(world, s));
+
+            world.Populate(specimen);
         }
     }
 }

@@ -6,6 +6,6 @@ namespace Simulation.World.Specimen.Attributes.Sensors
     {
         ISpecimenInternal Specimen { get; }
 
-        void Update();
+        void Update(SimulationWorld world);
     }
 }

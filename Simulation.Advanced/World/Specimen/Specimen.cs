@@ -19,9 +19,12 @@ namespace Simulation.World.Specimen
         private double _totalForce;
         private double _speed;
         private double _angularSpeed;
+        private readonly SimulationWorld _world;
+        private double _healthPoints;
 
-        public Specimen(ISpecimen specimen)
+        public Specimen(SimulationWorld world, ISpecimen specimen)
         {
+            _world = world;
             _specimenImplementation = specimen;
 
             List<ISpecimenAttributeInternal> attributes = new List<ISpecimenAttributeInternal>();
@@ -34,6 +37,7 @@ namespace Simulation.World.Specimen
                 }
                 attributes.Add(internalAttribute);
             }
+
             _attributes = attributes;
             _weight = CalculateWeight();
         }
@@ -48,6 +52,8 @@ namespace Simulation.World.Specimen
         public double RotationRadians { get; private set; }
         public double ActualSpeed => _speed;
         public double ActualAngularSpeed => _angularSpeed;
+
+        public double HealthPoints => _healthPoints;
 
         private double CalculateWeight()
         {
@@ -67,11 +73,21 @@ namespace Simulation.World.Specimen
             _totalForce += force;
         }
 
+        public void TakeDamage(double damage)
+        {
+            _healthPoints = (_healthPoints - damage).Clip(0, 100);
+        }
+
+        public void Heal(double health)
+        {
+            _healthPoints = (_healthPoints + health).Clip(0, 100);
+        }
+
         public void Update(TimeSpan lastUpdateDuration)
         {
             foreach (var sensor in _attributes.SelectMany(a => a.Sensors))
             {
-                sensor.Update();
+                sensor.Update(_world);
             }
 
             _specimenImplementation.Update();
