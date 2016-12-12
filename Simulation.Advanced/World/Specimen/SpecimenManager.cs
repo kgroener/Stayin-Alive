@@ -8,7 +8,7 @@ namespace Simulation.World.Specimens
     public class SpecimensManager
     {
         [ImportMany]
-        public IEnumerable<ISpecimentFactory> Specimens { get; set; }
+        public IEnumerable<ISpecimenFactory> Specimens { get; set; }
 
         public SpecimensManager()
         {

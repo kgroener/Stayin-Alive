@@ -2,7 +2,7 @@
 
 namespace Simulation.Interface.Specimens
 {
-    public interface ISpecimentFactory
+    public interface ISpecimenFactory
     {
         IEnumerable<ISpecimen> CreateGeneration(int maxAmount);
     }
