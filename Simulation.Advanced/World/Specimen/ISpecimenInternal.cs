@@ -19,6 +19,6 @@ namespace Simulation.World.Specimen
         void TakeDamage(double damage);
         void Heal(double health);
 
-        IEnumerable<ISpecimenAttributeInternal> Attributes { get; }
+        IEnumerable<ISpecimenInternalAttribute> Attributes { get; }
     }
 }

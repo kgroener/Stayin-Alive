@@ -1,10 +1,7 @@
-﻿using Simulation.Interface.Models;
-
-namespace Simulation.World.Specimen.Attributes.Sensors
+﻿namespace Simulation.World.Specimen.Attributes.Sensors
 {
-    internal abstract class SpecimenSensorBase : ISpecimenSensorInternal
+    internal abstract class SpecimenSensorBase : ISpecimenInternalSensor
     {
-        private MinusOneToOneRange _sensorValue;
         private readonly ISpecimenInternal _specimen;
 
         public SpecimenSensorBase(ISpecimenInternal specimen)
@@ -13,16 +10,6 @@ namespace Simulation.World.Specimen.Attributes.Sensors
         }
 
         public ISpecimenInternal Specimen => _specimen;
-
-        public MinusOneToOneRange GetSensorValue()
-        {
-            return _sensorValue;
-        }
-
-        protected void SetSensorValue(MinusOneToOneRange value)
-        {
-            _sensorValue = value;
-        }
 
         public abstract void Update(SimulationWorld world);
     }

@@ -2,12 +2,12 @@
 
 namespace Simulation.World.Specimen.Attributes.Actuators
 {
-    internal abstract class SpecimenActuatorBase : ISpecimenActuatorInternal
+    internal abstract class SpecimenActuatorBase : ISpecimenInternalActuator
     {
         private MinusOneToOneRange _activation;
         private readonly ISpecimenInternal _specimen;
 
-        protected MinusOneToOneRange Activation => _activation;
+        protected MinusOneToOneRange Activation { get; private set; }
 
         public SpecimenActuatorBase(ISpecimenInternal specimen)
         {
@@ -16,11 +16,11 @@ namespace Simulation.World.Specimen.Attributes.Actuators
 
         public ISpecimenInternal Specimen => _specimen;
 
-        public void SetActivation(MinusOneToOneRange value)
-        {
-            _activation = value;
-        }
+        public abstract void Update(SimulationWorld world);
 
-        public abstract void Update();
+        public void SetActivationLevel(MinusOneToOneRange activation)
+        {
+            Activation = activation;
+        }
     }
 }

@@ -6,7 +6,7 @@
         {
         }
 
-        public override void Update()
+        public override void Update(SimulationWorld world)
         {
             Specimen.ApplyAngularForce(Activation);
         }

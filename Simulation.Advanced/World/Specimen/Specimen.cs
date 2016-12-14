@@ -12,7 +12,7 @@ namespace Simulation.World.Specimen
 {
     internal class Specimen : ISpecimenInternal
     {
-        private readonly IEnumerable<ISpecimenAttributeInternal> _attributes;
+        private readonly IEnumerable<ISpecimenInternalAttribute> _attributes;
         private readonly ISpecimen _specimenImplementation;
         private readonly double _weight;
         private double _totalAngularForce;
@@ -27,23 +27,14 @@ namespace Simulation.World.Specimen
             _world = world;
             _specimenImplementation = specimen;
 
-            List<ISpecimenAttributeInternal> attributes = new List<ISpecimenAttributeInternal>();
-            foreach (var attribute in specimen.Attributes)
-            {
-                var internalAttribute = attribute as ISpecimenAttributeInternal;
-                if (internalAttribute == null)
-                {
-                    throw new NotSupportedException($"Custom specimen attributes are not supported!");
-                }
-                attributes.Add(internalAttribute);
-            }
+            var specimenAttributeFactory = new SpecimenAttributeFactory();
+            _attributes = specimen.Attributes.Select(a => specimenAttributeFactory.CreateInternalAttribute(a, this));
 
-            _attributes = attributes;
             _weight = CalculateWeight();
         }
 
         public IEnumerable<Vector2> PolygonPoints => _specimenImplementation.PolygonPoints;
-        public IEnumerable<ISpecimenAttributeInternal> Attributes => _attributes;
+        public IEnumerable<ISpecimenInternalAttribute> Attributes => _attributes;
         public Color Color => _specimenImplementation.Color;
         public double Weight => _weight;
         public double MaxAngularSpeed => 100 / Weight;
@@ -85,9 +76,9 @@ namespace Simulation.World.Specimen
 
         public void Update(TimeSpan lastUpdateDuration)
         {
-            foreach (var sensor in _attributes.SelectMany(a => a.Sensors))
+            foreach (var attribute in _attributes)
             {
-                sensor.Update(_world);
+                attribute.UpdateSensors(_world);
             }
 
             _specimenImplementation.Update();
@@ -95,9 +86,9 @@ namespace Simulation.World.Specimen
             _totalAngularForce = 0;
             _totalForce = 0;
 
-            foreach (var actuator in _attributes.SelectMany(a => a.Actuators))
+            foreach (var attribute in _attributes)
             {
-                actuator.Update();
+                attribute.UpdateActuators(_world);
             }
 
             _speed += (_totalForce * 1000 * lastUpdateDuration.TotalSeconds) / Weight;

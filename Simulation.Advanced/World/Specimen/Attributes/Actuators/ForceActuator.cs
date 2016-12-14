@@ -1,6 +1,4 @@
-﻿using Simulation.Models;
-
-namespace Simulation.World.Specimen.Attributes.Actuators
+﻿namespace Simulation.World.Specimen.Attributes.Actuators
 {
     internal class ForceActuator : SpecimenActuatorBase
     {
@@ -8,7 +6,7 @@ namespace Simulation.World.Specimen.Attributes.Actuators
         {
         }
 
-        public override void Update()
+        public override void Update(SimulationWorld world)
         {
             Specimen.ApplyForce(Activation);
         }

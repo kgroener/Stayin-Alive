@@ -8,15 +8,11 @@ namespace Simulation.World.Specimen.Attributes.Sensors
     internal class ColorSensor : RayCastingSensor
     {
         private readonly double _rangePixels;
-        private readonly Color _sensitivity;
-        private readonly float _totalSensitivity;
 
-        public ColorSensor(ISpecimenInternal specimen, double directionRadians, double rangePixels, Color colorSensitivity)
+        public ColorSensor(ISpecimenInternal specimen, double directionRadians, double rangePixels)
             : base(specimen, directionRadians)
         {
             _rangePixels = rangePixels;
-            _sensitivity = colorSensitivity;
-            _totalSensitivity = _sensitivity.ScR + _sensitivity.ScG + _sensitivity.ScB;
         }
 
         public override double RangePixels => _rangePixels;
@@ -28,16 +24,19 @@ namespace Simulation.World.Specimen.Attributes.Sensors
             {
                 var nearest = GetNearestCollision(collisions);
 
-                var red = nearest.Color.ScR * _sensitivity.ScR;
-                var green = nearest.Color.ScG * _sensitivity.ScG;
-                var blue = nearest.Color.ScB * _sensitivity.ScB;
-
-                sensorValue = (red + green + blue) / _totalSensitivity;
+                DetectedColor = nearest.Color;
+                DetectionDistance = (Specimen.Position - nearest.Position).Length();
+            }
+            else
+            {
+                DetectedColor = null;
+                DetectionDistance = null;
             }
 
-            SetSensorValue(sensorValue);
+
         }
 
-
+        public Color? DetectedColor { get; private set; }
+        public double? DetectionDistance { get; private set; }
     }
 }

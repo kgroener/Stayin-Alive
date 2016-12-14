@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Simulation.Interface.Specimen.Attributes;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Windows.Media;
 
@@ -8,7 +9,7 @@ namespace Simulation.Interface.Specimen
     {
         void Update();
 
-        IEnumerable<ISpecimenAttribute> Attributes { get; }
+        IEnumerable<SpecimenAttributeBase> Attributes { get; }
 
         Color Color { get; }
 

@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\MinusOneToOneRange.cs" />
+    <Compile Include="Specimen\Attributes\EyeAttribute.cs" />
+    <Compile Include="Specimen\Attributes\SpecimenAttributeFactoryBase.cs" />
+    <Compile Include="Specimen\Attributes\MotorAttribute.cs" />
+    <Compile Include="Specimen\Attributes\SpecimenAttributeBase.cs" />
     <Compile Include="Specimen\ISpecimen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -71,10 +75,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Specimen\ISpecimenActuator.cs" />
     <Compile Include="Specimen\ISpecimenAttribute.cs" />
     <Compile Include="Specimen\ISpecimenFactory.cs" />
-    <Compile Include="Specimen\ISpecimenSensor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,6 +87,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
