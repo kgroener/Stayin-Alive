@@ -1,4 +1,4 @@
-﻿using Simulation.Interface.Species;
+﻿using Simulation.Interface.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -6,9 +6,9 @@ using System.Windows.Media;
 
 namespace SimulationTest
 {
-    public class SpecieTest : ISpecie
+    public class SpecimenTest : ISpecimen
     {
-        public IEnumerable<ISpecieAttribute> Attributes
+        public IEnumerable<ISpecimenAttribute> Attributes
         {
             get
             {

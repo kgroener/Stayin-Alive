@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{899EE0B1-376D-48B7-8152-D48BC5FB611C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simulation</RootNamespace>
     <AssemblyName>Simulation</AssemblyName>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -74,46 +77,34 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
     <Compile Include="Calculations\NumberExtensions.cs" />
     <Compile Include="Contracts\IRotateable.cs" />
     <Compile Include="Composition\CompositionContainer.cs" />
     <Compile Include="Calculations\AreaCalculations.cs" />
+    <Compile Include="Simulation.cs" />
+    <Compile Include="SimulationSettings.cs" />
     <Compile Include="World\IWorldObject.cs" />
     <Compile Include="World\Physics\CollisionDetector.cs" />
-    <Compile Include="World\Species\Attributes\Actuators\AngularForceActuator.cs" />
-    <Compile Include="World\Species\Attributes\Actuators\ISpecieActuatorInternal.cs" />
-    <Compile Include="World\Species\Attributes\Actuators\ForceActuator.cs" />
-    <Compile Include="World\Species\Attributes\Actuators\RotationActuator.cs" />
-    <Compile Include="World\Species\Attributes\Actuators\SpecieActuatorBase.cs" />
-    <Compile Include="World\Species\Attributes\EyeAttribute.cs" />
-    <Compile Include="World\Species\Attributes\ISpecieAttributeInternal.cs" />
-    <Compile Include="World\Species\Attributes\LegAttribute.cs" />
-    <Compile Include="World\Species\Attributes\Sensors\RayCasting\ColorSensor.cs" />
-    <Compile Include="World\Species\Attributes\Sensors\ISpecieSensorInternal.cs" />
-    <Compile Include="World\Species\Attributes\Sensors\RayCasting\RayCastingSensor.cs" />
-    <Compile Include="World\Species\Attributes\Sensors\SpecieSensorBase.cs" />
-    <Compile Include="World\Species\Attributes\SpecieAttributeBase.cs" />
+    <Compile Include="World\Physics\Line.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\AngularForceActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\ISpecimenInternalActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\ForceActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\RotationActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\SpecimenActuatorBase.cs" />
+    <Compile Include="World\Specimen\Attributes\EyeInternalAttribute.cs" />
+    <Compile Include="World\Specimen\Attributes\ISpecimenInternalAttribute.cs" />
+    <Compile Include="World\Specimen\Attributes\MotorInternalAttribute.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\ColorSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\ISpecimenInternalSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\RayCastingSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\SpecimenSensorBase.cs" />
+    <Compile Include="World\Specimen\Attributes\SpecimenAttributeFactory.cs" />
+    <Compile Include="World\Specimen\Attributes\SpecimenInternalAttributeBase.cs" />
     <Compile Include="World\Physics\VectorExtensions.cs" />
-    <Compile Include="World\Species\ISpecieInternal.cs" />
-    <Compile Include="World\Species\Specie.cs" />
-    <Compile Include="World\Species\SpeciesManager.cs" />
+    <Compile Include="World\Specimen\ISpecimenInternal.cs" />
+    <Compile Include="World\Specimen\Specimen.cs" />
+    <Compile Include="World\Specimen\SpecimenManager.cs" />
     <Compile Include="World\World.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
