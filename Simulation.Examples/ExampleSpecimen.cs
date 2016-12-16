@@ -1,4 +1,5 @@
-﻿using Simulation.Interface.Specimen;
+﻿using Simulation.Interface;
+using Simulation.Interface.Specimen;
 using Simulation.Interface.Specimen.Attributes;
 using System;
 using System.Collections.Generic;
@@ -10,15 +11,16 @@ namespace Simulation.Examples
     internal class ExampleSpecimen : ISpecimen
     {
         private readonly EyeAttribute _eyeAttribute;
+        private ILogger _logger;
         private readonly MotorAttribute _motorAttribute;
         private Random _random;
 
-        public ExampleSpecimen()
+        public ExampleSpecimen(ILogger simulationLogger)
         {
+            _logger = simulationLogger;
             _eyeAttribute = new EyeAttribute(0);
             _motorAttribute = new MotorAttribute();
             _random = new Random();
-
         }
 
         public IEnumerable<SpecimenAttributeBase> Attributes
@@ -52,8 +54,7 @@ namespace Simulation.Examples
         public void Update()
         {
             if (_eyeAttribute.DetectionDistance.HasValue
-                && _eyeAttribute.DetectionDistance.Value < 100
-                )
+                && _eyeAttribute.DetectionDistance.Value < 100)
             {
                 if (_motorAttribute.Steering != 0)
                 {

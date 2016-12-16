@@ -56,11 +56,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILogger.cs" />
     <Compile Include="Models\MinusOneToOneRange.cs" />
     <Compile Include="Specimen\Attributes\EyeAttribute.cs" />
     <Compile Include="Specimen\Attributes\SpecimenAttributeFactoryBase.cs" />
     <Compile Include="Specimen\Attributes\MotorAttribute.cs" />
     <Compile Include="Specimen\Attributes\SpecimenAttributeBase.cs" />
+    <Compile Include="ISimulationMetadata.cs" />
     <Compile Include="Specimen\ISpecimen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

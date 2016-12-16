@@ -81,6 +81,8 @@
     <Compile Include="Contracts\IRotateable.cs" />
     <Compile Include="Composition\CompositionContainer.cs" />
     <Compile Include="Calculations\AreaCalculations.cs" />
+    <Compile Include="Logging\LogManager.cs" />
+    <Compile Include="Logging\SpecieLogger.cs" />
     <Compile Include="Simulation.cs" />
     <Compile Include="SimulationSettings.cs" />
     <Compile Include="World\IWorldObject.cs" />

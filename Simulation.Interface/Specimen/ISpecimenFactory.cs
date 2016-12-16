@@ -4,6 +4,6 @@ namespace Simulation.Interface.Specimen
 {
     public interface ISpecimenFactory
     {
-        IEnumerable<ISpecimen> CreateGeneration(int maxAmount);
+        IEnumerable<ISpecimen> CreateFirstGeneration(int maxAmount);
     }
 }
