@@ -20,5 +20,13 @@ namespace Simulation.Examples
                 yield return new ExampleSpecimen(_logger);
             }
         }
+
+        public IEnumerable<ISpecimen> Evolve(int maxAmount, IReadOnlyDictionary<ISpecimen, double> fitnessResults)
+        {
+            for (int i = 0; i < maxAmount; i++)
+            {
+                yield return new ExampleSpecimen(_logger);
+            }
+        }
     }
 }
