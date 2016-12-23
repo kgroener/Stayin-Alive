@@ -2,6 +2,8 @@
 {
     public struct MinusOneToOneRange
     {
+        private const double MIN_VALUE = -1;
+        private const double MAX_VALUE = 1;
         private double _value;
 
         public MinusOneToOneRange(double value)
@@ -9,8 +11,8 @@
             _value = Truncate(value);
         }
 
-        public static MinusOneToOneRange MinValue => -1;
-        public static MinusOneToOneRange MaxValue => 1;
+        public static MinusOneToOneRange MinValue => MIN_VALUE;
+        public static MinusOneToOneRange MaxValue => MAX_VALUE;
 
         public static implicit operator MinusOneToOneRange(double value)
         {
@@ -113,7 +115,7 @@
 
         private static double Truncate(double value)
         {
-            return (value < MinValue) ? MinValue.Value : (value > MaxValue) ? MaxValue.Value : value;
+            return (value < MIN_VALUE) ? MIN_VALUE : (value > MAX_VALUE) ? MAX_VALUE : value;
         }
 
         public override bool Equals(object o)

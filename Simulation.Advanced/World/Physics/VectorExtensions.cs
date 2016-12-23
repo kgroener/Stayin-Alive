@@ -26,10 +26,10 @@ namespace Simulation.World.Physics
             double maxX = Math.Max(point1.X, point2.X);
             double maxY = Math.Max(point1.Y, point2.Y);
 
-            return minX < targetPoint.X
-                && targetPoint.X < maxX
-                && minY < targetPoint.Y
-                && targetPoint.Y < maxY;
+            return minX <= targetPoint.X
+                && targetPoint.X <= maxX
+                && minY <= targetPoint.Y
+                && targetPoint.Y <= maxY;
         }
     }
 }

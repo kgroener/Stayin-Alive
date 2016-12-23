@@ -39,7 +39,7 @@ namespace Simulation.World.Specimen.Attributes
 
         protected override void SetAttributeSensorValues(MotorAttribute attribute)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

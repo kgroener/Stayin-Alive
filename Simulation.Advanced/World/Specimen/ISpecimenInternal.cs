@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Simulation.World.Specimen
 {
-    internal interface ISpecimenInternal : IWorldObject
+    internal interface ISpecimenInternal : IUpdateableWorldObject
     {
         void ApplyForce(double force);
         void ApplyAngularForce(double force);
