@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace Simulation.Logging
 {
     [Export(typeof(ILogAppender))]
-    public class DebugLogger : ILogAppender
+    public class DebugLogAppender : ILogAppender
     {
         public void Error(string logMessage)
         {
