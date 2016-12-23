@@ -1,4 +1,4 @@
-﻿using Simulation.Interface.Logging;
+using Simulation.Interface.Logging;
 using Simulation.Interface.Specimen;
 using Simulation.Interface.Specimen.Attributes;
 using System;
@@ -10,15 +10,23 @@ namespace Simulation.Examples
 {
     internal class ExampleSpecimen : ISpecimen
     {
-        private readonly EyeAttribute _eyeAttribute;
         private ILogger _logger;
+
+        private readonly EyeAttribute _eyeAttributeFront;
+        private readonly EyeAttribute _eyeAttributeLeft;
+        private readonly EyeAttribute _eyeAttributeRight;
+
         private readonly MotorAttribute _motorAttribute;
         private Random _random;
 
         public ExampleSpecimen(ILogger logger)
         {
             _logger = logger;
-            _eyeAttribute = new EyeAttribute(0);
+
+            _eyeAttributeFront = new EyeAttribute(0);
+            _eyeAttributeRight = new EyeAttribute(-Math.PI / 4);
+            _eyeAttributeLeft = new EyeAttribute(Math.PI / 4);
+
             _motorAttribute = new MotorAttribute();
             _random = new Random();
         }
@@ -29,7 +37,9 @@ namespace Simulation.Examples
             {
                 return new SpecimenAttributeBase[]
                 {
-                    _eyeAttribute,
+                    _eyeAttributeFront,
+                    _eyeAttributeRight,
+                    _eyeAttributeLeft,
                     _motorAttribute
                 };
             }
@@ -44,29 +54,27 @@ namespace Simulation.Examples
                 return new Vector2[]
                 {
                     new Vector2(0,0),
-                    new Vector2(0,5),
-                    new Vector2(5,5),
-                    new Vector2(5,0),
+                    new Vector2(0,50),
+                    new Vector2(50,50),
+                    new Vector2(50,0),
                 };
             }
         }
 
         public void Update()
         {
-            if (_eyeAttribute.DetectionDistance.HasValue
-                && _eyeAttribute.DetectionDistance.Value < 100)
+            if (_eyeAttributeFront.DetectionDistance.HasValue
+                && _eyeAttributeFront.DetectionDistance.Value < 100
+                )
             {
-                if (_motorAttribute.Steering != 0)
-                {
-                    _motorAttribute.Steering = _random.Next(0, 2) == 0 ? -1 : 1;
-                    _motorAttribute.Throttle = 0.2;
-                }
+                _motorAttribute.Throttle = _eyeAttributeFront.DetectionDistance.Value / 100;
             }
             else
             {
                 _motorAttribute.Throttle = 1;
-                _motorAttribute.Steering = 0;
             }
+
+            _motorAttribute.Steering = ((500 - _eyeAttributeRight.DetectionDistance.GetValueOrDefault()) / 500 - (500 - _eyeAttributeLeft.DetectionDistance.GetValueOrDefault()) / 500);
         }
     }
 }

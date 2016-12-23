@@ -20,7 +20,7 @@ namespace Simulation
         private bool _stopRequested;
         private readonly SimulationWorld _world;
 
-        internal SimulationWorld World => _world;
+        public ISimulationWorld World => _world;
 
         public event EventHandler Updated;
 
@@ -57,27 +57,34 @@ namespace Simulation
 
                 _runningTask = Task.Run(async () =>
                 {
-                    while (!_stopRequested)
+                    try
                     {
-                        _specimenManager.PopulateWorld(_world, _settings.MaximumWorldPopulation);
-
-                        DateTime lastUpdateTimestamp = DateTime.Now;
-                        while (!GenerationEndCriteriaMet())
+                        while (!_stopRequested)
                         {
-                            var currentTimestamp = DateTime.Now;
-                            var updateDuration = lastUpdateTimestamp - currentTimestamp;
-                            lastUpdateTimestamp = currentTimestamp;
+                            _specimenManager.PopulateWorld(_world, _settings.MaximumWorldPopulation);
 
-                            foreach (var worldObjects in _world.Objects)
+                            DateTime lastUpdateTimestamp = DateTime.Now;
+                            while (!GenerationEndCriteriaMet())
                             {
-                                worldObjects.Update(updateDuration);
-                            }
+                                await Task.Delay(10);
 
-                            Updated?.Invoke(this, EventArgs.Empty);
-                            await Task.Delay(10);
+                                var currentTimestamp = DateTime.Now;
+                                var updateDuration = currentTimestamp - lastUpdateTimestamp;
+                                lastUpdateTimestamp = currentTimestamp;
+
+                                foreach (var worldObjects in _world.UpdateableObjects)
+                                {
+                                    worldObjects.Update(updateDuration);
+                                }
+
+                                Updated?.Invoke(this, EventArgs.Empty);
+                            }
                         }
                     }
-
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 });
 
                 return _runningTask;

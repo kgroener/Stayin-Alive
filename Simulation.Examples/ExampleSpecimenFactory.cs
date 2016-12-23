@@ -1,9 +1,10 @@
-﻿using Simulation.Interface.Logging;
+using Simulation.Interface.Logging;
 using Simulation.Interface.Specimen;
 using System.Collections.Generic;
 
 namespace Simulation.Examples
 {
+    [ExportSpecimenFactory]
     public class ExampleSpecimenFactory : ISpecimenFactory
     {
         private ILogger _logger;

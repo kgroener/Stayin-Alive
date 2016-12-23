@@ -86,6 +86,9 @@
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Simulation.cs" />
     <Compile Include="SimulationSettings.cs" />
+    <Compile Include="World\ISimulationWorld.cs" />
+    <Compile Include="World\IUpdateable.cs" />
+    <Compile Include="World\IUpdateableWorldObject.cs" />
     <Compile Include="World\IWorldObject.cs" />
     <Compile Include="World\Physics\CollisionDetector.cs" />
     <Compile Include="World\Physics\Line.cs" />
@@ -107,7 +110,7 @@
     <Compile Include="World\Specimen\ISpecimenInternal.cs" />
     <Compile Include="World\Specimen\Specimen.cs" />
     <Compile Include="World\Specimen\SpecimenManager.cs" />
-    <Compile Include="World\World.cs" />
+    <Compile Include="World\SimulationWorld.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

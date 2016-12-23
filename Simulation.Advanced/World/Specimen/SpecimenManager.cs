@@ -1,17 +1,23 @@
-﻿using Simulation.Interface.Specimen;
+using Simulation.Interface.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace Simulation.World.Specimen
 {
     internal class SpecimenManager
     {
-        private IEnumerable<ISpecimenFactory> _specimenFactories;
+        private Random _random;
 
-        public SpecimenManager(IEnumerable<ISpecimenFactory> specimenFactories)
+        [ImportMany]
+        public IEnumerable<ISpecimenFactory> SpecimenFactories { get; set; }
+
+        public SpecimenManager()
         {
-            _specimenFactories = specimenFactories;
+            CompositionContainer.Resolve(this);
+
+            _random = new Random();
         }
 
         public int SpecimenCount => _specimenFactories.Count();
@@ -22,7 +28,7 @@ namespace Simulation.World.Specimen
 
             var specimenAbstracts = _specimenFactories.SelectMany((v) => v.CreateFirstGeneration(allowedGenerationSize).Take(allowedGenerationSize));
 
-            var specimen = specimenAbstracts.Select(s => new Specimen(world, s));
+            var specimen = specimenAbstracts.Select(s => new Specimen(world, s, new Vector2(_random.Next(200, 500), _random.Next(200, 500)), _random.NextDouble() * Math.PI * 2));
 
             world.Populate(specimen);
         }

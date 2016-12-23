@@ -5,18 +5,19 @@ using System.Linq;
 
 namespace Simulation.World
 {
-    internal class SimulationWorld
+    internal class SimulationWorld : ISimulationWorld
     {
-        private List<IWorldObject> _objects;
+        private List<IUpdateableWorldObject> _objects;
         private IEnumerable<ISpecimenInternal> _population;
 
-        public IEnumerable<IWorldObject> Objects => _population.Concat(_objects);
+        public IEnumerable<IWorldObject> Objects => UpdateableObjects;
+        public IEnumerable<IUpdateableWorldObject> UpdateableObjects => _population.Concat(_objects);
 
         public IEnumerable<ISpecimenInternal> Population => _population;
 
         public SimulationWorld()
         {
-            _objects = new List<IWorldObject>();
+            _objects = new List<IUpdateableWorldObject>();
             _population = Enumerable.Empty<ISpecimenInternal>();
         }
 
@@ -25,7 +26,7 @@ namespace Simulation.World
             _population = specimen.ToArray();
         }
 
-        internal void SpawnObject(IWorldObject obj)
+        internal void SpawnObject(IUpdateableWorldObject obj)
         {
             if (obj is ISpecimenInternal)
             {
