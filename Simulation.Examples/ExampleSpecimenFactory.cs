@@ -1,12 +1,9 @@
 ﻿using Simulation.Interface.Specimen;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Simulation.Examples
 {
+    [ExportSpecimenFactory]
     public class ExampleSpecimenFactory : ISpecimenFactory
     {
         public IEnumerable<ISpecimen> CreateGeneration(int maxAmount)

@@ -1,45 +1,47 @@
-﻿using Simulation.Interface.Models;
-using Simulation.Models;
+﻿using System;
 using System.Numerics;
 
 namespace Simulation.World.Physics
 {
     internal static class CollisionDetector
     {
-        private static Vector2? GetLineIntersectionPoint(Line lineA, Line lineB)
+        private static float Cross(this Vector2 a, Vector2 b)
         {
+            return a.X * b.Y - b.X * a.Y;
+        }
 
-            float A1 = lineA.End.Y - lineA.Start.Y;
-            float A2 = lineB.End.Y - lineB.Start.Y;
 
-            float B1 = lineA.End.X - lineA.Start.X;
-            float B2 = lineB.End.X - lineB.Start.X;
+        private static bool IsZero(this float d)
+        {
+            const double Epsilon = 1e-10;
+            return Math.Abs(d) < Epsilon;
+        }
 
-            float delta = A1 * B2 - A2 * B1;
-            if (delta == 0)
+        public static Vector2? CalculateLineSegementsIntersectionPoint(Line a, Line b)
+        {
+            var lineAStart = a.Start;
+            var lineAEnd = a.End;
+
+            var lineBStart = b.Start;
+            var lineBEnd = b.End;
+
+            var deltaA = lineAEnd - lineAStart;
+            var deltaB = lineBEnd - lineBStart;
+            var deltaCrossProduct = deltaA.Cross(deltaB);
+
+            if (deltaCrossProduct.IsZero())
             {
-                // lines are parallel
+                // Lines are parallel, no intersection
                 return null;
             }
 
-            float C1 = A1 * lineA.Start.X + B1 * lineA.Start.Y;
-            float C2 = A2 * lineB.Start.X + B2 * lineB.Start.Y;
+            float t = (lineBStart - lineAStart).Cross(deltaB) / deltaCrossProduct;
 
-            float x = (B2 * C1 - B1 * C2) / delta;
-            float y = (A1 * C2 - A2 * C1) / delta;
+            var u = (lineBStart - lineAStart).Cross(deltaA) / deltaCrossProduct;
 
-            return new Vector2(x, y);
-        }
-
-        public static Vector2? GetCollisionPoint(Line lineA, Line lineB)
-        {
-            var intersectionPoint = GetLineIntersectionPoint(lineA, lineB);
-
-            if (intersectionPoint.HasValue
-                && intersectionPoint.Value.IsBetween(lineA.Start, lineA.End)
-                && intersectionPoint.Value.IsBetween(lineB.Start, lineB.End))
+            if (!deltaCrossProduct.IsZero() && (0 <= t && t <= 1) && (0 <= u && u <= 1))
             {
-                return intersectionPoint;
+                return lineAStart + Vector2.Multiply(t, deltaA);
             }
 
             return null;
@@ -47,7 +49,7 @@ namespace Simulation.World.Physics
 
         public static bool AreColliding(Line lineA, Line lineB)
         {
-            return GetCollisionPoint(lineA, lineB).HasValue;
+            return CalculateLineSegementsIntersectionPoint(lineA, lineB).HasValue;
         }
 
 

@@ -22,14 +22,17 @@ namespace Simulation.World.Specimen
         private readonly SimulationWorld _world;
         private double _healthPoints;
 
-        public Specimen(SimulationWorld world, ISpecimen specimen)
+        public Specimen(SimulationWorld world, ISpecimen specimen, Vector2 initialPosition, double initialRotation)
         {
             _world = world;
             _specimenImplementation = specimen;
 
+            _healthPoints = 100;
+            Position = initialPosition;
+            RotationRadians = initialRotation;
+
             var specimenAttributeFactory = new SpecimenAttributeFactory();
             _attributes = specimen.Attributes.Select(a => specimenAttributeFactory.CreateInternalAttribute(a, this));
-
             _weight = CalculateWeight();
         }
 
@@ -37,8 +40,8 @@ namespace Simulation.World.Specimen
         public IEnumerable<ISpecimenInternalAttribute> Attributes => _attributes;
         public Color Color => _specimenImplementation.Color;
         public double Weight => _weight;
-        public double MaxAngularSpeed => 100 / Weight;
-        public double MaxSpeed => 100 / Weight;
+        public double MaxAngularSpeed => 10 / Weight;
+        public double MaxSpeed => 10 / Weight;
         public Vector2 Position { get; private set; }
         public double RotationRadians { get; private set; }
         public double ActualSpeed => _speed;
@@ -48,7 +51,7 @@ namespace Simulation.World.Specimen
 
         private double CalculateWeight()
         {
-            var shapeWeight = AreaCalculations.CalculatePolygonArea(_specimenImplementation.PolygonPoints);
+            var shapeWeight = AreaCalculations.CalculatePolygonArea(_specimenImplementation.PolygonPoints)/10;
             var attributeWeight = _attributes.Sum(a => a.Weight);
 
             return shapeWeight + attributeWeight;
@@ -83,18 +86,28 @@ namespace Simulation.World.Specimen
 
             _specimenImplementation.Update();
 
-            _totalAngularForce = 0;
-            _totalForce = 0;
+            _totalAngularForce /= 100;
+            _totalForce /= 4;
 
             foreach (var attribute in _attributes)
             {
                 attribute.UpdateActuators(_world);
             }
 
-            _speed += (_totalForce * 1000 * lastUpdateDuration.TotalSeconds) / Weight;
+            if (Math.Abs(_totalForce) < 0.0001)
+            {
+                _totalForce = 0;
+            }
+
+            if (Math.Abs(_totalAngularForce) < 0.0001)
+            {
+                _totalAngularForce = 0;
+            }
+
+            _speed += (_totalForce * lastUpdateDuration.TotalSeconds) / Weight;
             _speed = _speed.Clip(-MaxSpeed, MaxSpeed);
 
-            _angularSpeed += (_totalAngularForce * 1000 * lastUpdateDuration.TotalSeconds) / Weight;
+            _angularSpeed += (_totalAngularForce * lastUpdateDuration.TotalSeconds) / Weight;
             _angularSpeed = _angularSpeed.Clip(-MaxAngularSpeed, MaxAngularSpeed);
 
             RotationRadians += _angularSpeed;

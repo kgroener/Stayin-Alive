@@ -8,7 +8,7 @@
 
         public override void Update(SimulationWorld world)
         {
-            Specimen.ApplyAngularForce(Activation);
+            Specimen.ApplyAngularForce(Activation*10);
         }
     }
 }

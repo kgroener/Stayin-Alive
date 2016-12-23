@@ -37,16 +37,16 @@ namespace Simulation.World.Specimen.Attributes.Sensors
                     {
                         edge = new Line()
                         {
-                            Start = points.Last(),
-                            End = points[i]
+                            Start = points.Last() + obj.Position,
+                            End = points[i] + obj.Position
                         };
                     }
                     else
                     {
                         edge = new Line()
                         {
-                            Start = points[i - 1],
-                            End = points[i]
+                            Start = points[i - 1] + obj.Position,
+                            End = points[i] + obj.Position
                         };
                     }
 
