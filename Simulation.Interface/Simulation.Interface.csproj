@@ -56,7 +56,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILogger.cs" />
+    <Compile Include="Logging\ILogAppender.cs" />
+    <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Models\MinusOneToOneRange.cs" />
     <Compile Include="Specimen\Attributes\EyeAttribute.cs" />
     <Compile Include="Specimen\Attributes\SpecimenAttributeFactoryBase.cs" />

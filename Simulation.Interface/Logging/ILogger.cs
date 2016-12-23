@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Simulation.Interface
+namespace Simulation.Interface.Logging
 {
     public interface ILogger
     {

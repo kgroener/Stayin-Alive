@@ -1,30 +1,37 @@
-﻿using Simulation.Interface;
-using System;
-using System.Threading.Tasks;
+﻿using Simulation.Interface.Logging;
+using System.Collections.Concurrent;
 
 namespace Simulation.Logging
 {
-    internal static class LogManager
+    public static class LogManager
     {
-        private static Task _disableLoggingTask;
+        private static ConcurrentDictionary<string, ILogger> _loggers;
 
-        internal static bool IsInfoEnabled { get; private set; }
+        public static bool IsInfoEnabled { get; private set; }
 
-        internal static void EnableInfoLogging(TimeSpan infoLogDuration)
+        static LogManager()
         {
-            IsInfoEnabled = true;
-
-            if (_disableLoggingTask != null)
-            {
-                _disableLoggingTask.Dispose();
-            }
-
-            _disableLoggingTask = Task.Delay(infoLogDuration).ContinueWith(new Action<Task>((t) => IsInfoEnabled = false));
+            _loggers = new ConcurrentDictionary<string, ILogger>();
         }
 
-        internal static ILogger GetLoggerForSpecie(string specieName)
+        public static void DisableInfoLogging()
         {
-            return new SpecieLogger(specieName);
+            IsInfoEnabled = false;
+        }
+
+        public static void EnableInfoLogging()
+        {
+            IsInfoEnabled = true;
+        }
+
+        public static ILogger GetLogger(string subject)
+        {
+            return _loggers.GetOrAdd(subject, (s) => new Logger(s));
+        }
+
+        public static ILogger GetLogger(object subject)
+        {
+            return GetLogger(subject.GetType().Name);
         }
     }
 }

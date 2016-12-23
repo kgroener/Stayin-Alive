@@ -1,4 +1,5 @@
 ﻿using Simulation.Interface;
+using Simulation.Interface.Logging;
 using Simulation.Interface.Specimen;
 
 namespace Simulation.Examples
@@ -7,9 +8,9 @@ namespace Simulation.Examples
     {
         public string SpecieName => "ExampleSpecie";
 
-        public ISpecimenFactory CreateSpeciminFactory(ILogger simulationLogger)
+        public ISpecimenFactory CreateSpecimenFactory(ILogger logger)
         {
-            return new ExampleSpecimenFactory(simulationLogger);
+            return new ExampleSpecimenFactory(logger);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Simulation
         private SpecimenManager SetupSpecimenManager()
         {
             var specimenFactories = SimulationMetadata.Select(
-                s => s.CreateSpeciminFactory(LogManager.GetLoggerForSpecie(s.SpecieName)));
+                s => s.CreateSpecimenFactory(LogManager.GetLogger(s.SpecieName)));
 
             return new SpecimenManager(specimenFactories);
         }
@@ -95,6 +95,5 @@ namespace Simulation
             _stopRequested = true;
             await _runningTask;
         }
-
     }
 }

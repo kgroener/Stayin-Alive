@@ -1,4 +1,4 @@
-﻿using Simulation.Interface;
+﻿using Simulation.Interface.Logging;
 using Simulation.Interface.Specimen;
 using Simulation.Interface.Specimen.Attributes;
 using System;
@@ -15,9 +15,9 @@ namespace Simulation.Examples
         private readonly MotorAttribute _motorAttribute;
         private Random _random;
 
-        public ExampleSpecimen(ILogger simulationLogger)
+        public ExampleSpecimen(ILogger logger)
         {
-            _logger = simulationLogger;
+            _logger = logger;
             _eyeAttribute = new EyeAttribute(0);
             _motorAttribute = new MotorAttribute();
             _random = new Random();

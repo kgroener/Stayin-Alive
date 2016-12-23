@@ -1,4 +1,4 @@
-﻿using Simulation.Interface;
+﻿using Simulation.Interface.Logging;
 using Simulation.Interface.Specimen;
 using System.Collections.Generic;
 
@@ -8,9 +8,9 @@ namespace Simulation.Examples
     {
         private ILogger _logger;
 
-        public ExampleSpecimenFactory(ILogger simulationLogger)
+        public ExampleSpecimenFactory(ILogger logger)
         {
-            _logger = simulationLogger;
+            _logger = logger;
         }
 
         public IEnumerable<ISpecimen> CreateFirstGeneration(int maxAmount)

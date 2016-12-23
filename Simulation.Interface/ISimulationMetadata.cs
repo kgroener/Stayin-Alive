@@ -1,10 +1,11 @@
-﻿using Simulation.Interface.Specimen;
+﻿using Simulation.Interface.Logging;
+using Simulation.Interface.Specimen;
 
 namespace Simulation.Interface
 {
     public interface ISimulationMetadata
     {
         string SpecieName { get; }
-        ISpecimenFactory CreateSpeciminFactory(ILogger simulationLogger);
+        ISpecimenFactory CreateSpecimenFactory(ILogger logger);
     }
 }
