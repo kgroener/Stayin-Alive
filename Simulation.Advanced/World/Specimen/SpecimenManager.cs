@@ -10,12 +10,12 @@ namespace Simulation.World.Specimen
     {
         private Random _random;
 
-        [ImportMany]
-        public IEnumerable<ISpecimenFactory> SpecimenFactories { get; set; }
 
-        public SpecimenManager()
+        private IEnumerable<ISpecimenFactory> _specimenFactories;
+
+        public SpecimenManager(IEnumerable<ISpecimenFactory> specimenFactories)
         {
-            CompositionContainer.Resolve(this);
+            _specimenFactories = specimenFactories;
 
             _random = new Random();
         }
