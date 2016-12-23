@@ -1,6 +1,11 @@
-﻿using Simulation.World;
+﻿using Simulation.Interface;
+using Simulation.Logging;
+using Simulation.Models;
+using Simulation.World;
 using Simulation.World.Specimen;
 using System;
+using System.Collections.Generic;
+using System.Composition;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,12 +24,26 @@ namespace Simulation
 
         public event EventHandler Updated;
 
+        [ImportMany]
+        public IEnumerable<ISimulationMetadata> SimulationMetadata { get; set; }
+
         public Simulation(SimulationSettings settings)
         {
+            CompositionContainer.Resolve(this);
+
             _settings = settings;
             _world = new SimulationWorld();
-            _specimenManager = new SpecimenManager();
+            _specimenManager = SetupSpecimenManager();
+
             _runningLock = new object();
+        }
+
+        private SpecimenManager SetupSpecimenManager()
+        {
+            var specimenFactories = SimulationMetadata.Select(
+                s => s.CreateSpecimenFactory(LogManager.GetLogger(s.SpecieName)));
+
+            return new SpecimenManager(specimenFactories);
         }
 
         public Task RunAsync()
@@ -83,6 +102,5 @@ namespace Simulation
             _stopRequested = true;
             await _runningTask;
         }
-
     }
 }

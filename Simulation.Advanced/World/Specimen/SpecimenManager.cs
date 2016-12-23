@@ -1,8 +1,6 @@
-﻿using Simulation.Interface.Specimen;
-using Simulation.Models;
+using Simulation.Interface.Specimen;
 using System;
 using System.Collections.Generic;
-using System.Composition;
 using System.Linq;
 using System.Numerics;
 
@@ -12,23 +10,23 @@ namespace Simulation.World.Specimen
     {
         private Random _random;
 
-        [ImportMany]
-        public IEnumerable<ISpecimenFactory> SpecimenFactories { get; set; }
 
-        public SpecimenManager()
+        private IEnumerable<ISpecimenFactory> _specimenFactories;
+
+        public SpecimenManager(IEnumerable<ISpecimenFactory> specimenFactories)
         {
-            CompositionContainer.Resolve(this);
+            _specimenFactories = specimenFactories;
 
             _random = new Random();
         }
 
-        public int SpecimenCount => SpecimenFactories.Count();
+        public int SpecimenCount => _specimenFactories.Count();
 
         public void PopulateWorld(SimulationWorld world, int maximumWorldPopulation)
         {
             var allowedGenerationSize = Math.Max(1, maximumWorldPopulation / SpecimenCount);
 
-            var specimenAbstracts = SpecimenFactories.SelectMany((v) => v.CreateGeneration(allowedGenerationSize).Take(allowedGenerationSize));
+            var specimenAbstracts = _specimenFactories.SelectMany((v) => v.CreateFirstGeneration(allowedGenerationSize).Take(allowedGenerationSize));
 
             var specimen = specimenAbstracts.Select(s => new Specimen(world, s, new Vector2(_random.Next(200, 500), _random.Next(200, 500)), _random.NextDouble() * Math.PI * 2));
 

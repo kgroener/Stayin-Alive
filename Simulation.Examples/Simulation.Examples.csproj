@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExampleSimulationMetadata.cs" />
     <Compile Include="ExampleSpecimen.cs" />
     <Compile Include="ExampleSpecimenFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
