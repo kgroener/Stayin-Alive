@@ -59,6 +59,10 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -156,7 +160,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simulation.Advanced\Simulation.csproj">
+    <ProjectReference Include="..\Simulation\Simulation.csproj">
       <Project>{899ee0b1-376d-48b7-8152-d48bc5fb611c}</Project>
       <Name>Simulation</Name>
     </ProjectReference>

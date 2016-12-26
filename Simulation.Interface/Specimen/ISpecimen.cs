@@ -1,7 +1,7 @@
-﻿using Simulation.Interface.Specimen.Attributes;
+﻿using Simulation.Interface.Models;
+using Simulation.Interface.Specimen.Attributes;
 using System.Collections.Generic;
 using System.Numerics;
-using System.Windows.Media;
 
 namespace Simulation.Interface.Specimen
 {
@@ -11,7 +11,7 @@ namespace Simulation.Interface.Specimen
 
         IEnumerable<SpecimenAttributeBase> Attributes { get; }
 
-        Color Color { get; }
+        RgbColor Color { get; }
 
         IEnumerable<Vector2> PolygonPoints { get; }
     }

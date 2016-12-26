@@ -1,10 +1,10 @@
 using Simulation.Interface.Logging;
+using Simulation.Interface.Models;
 using Simulation.Interface.Specimen;
 using Simulation.Interface.Specimen.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
-using System.Windows.Media;
 
 namespace Simulation.Examples
 {
@@ -45,7 +45,7 @@ namespace Simulation.Examples
             }
         }
 
-        public Color Color => Colors.Red;
+        public RgbColor Color => new RgbColor(255, 0, 0);
 
         public IEnumerable<Vector2> PolygonPoints
         {

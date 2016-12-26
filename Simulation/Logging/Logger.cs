@@ -3,7 +3,6 @@ using Simulation.Models;
 using System;
 using System.Collections.Generic;
 using System.Composition;
-using System.Linq;
 
 namespace Simulation.Logging
 {
@@ -50,7 +49,7 @@ namespace Simulation.Logging
 
         private void UseLoggers(Action<ILogAppender> doLog)
         {
-            foreach (var logger in LogAppenders.AsParallel())
+            foreach (var logger in LogAppenders)
             {
                 doLog(logger);
             }

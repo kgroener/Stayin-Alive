@@ -45,7 +45,7 @@ namespace Simulation.WPF.ViewModels
                         polygon.Points.Add(new System.Windows.Point(point.X, point.Y));
                     }
 
-                    polygon.Fill = new SolidColorBrush(worldObject.Color);
+                    polygon.Fill = new SolidColorBrush(Color.FromRgb(worldObject.Color.R, worldObject.Color.G, worldObject.Color.B));
 
                     var centerX = (worldObject.PolygonPoints.Max((p) => p.X) - worldObject.PolygonPoints.Min((p) => p.X)) / 2;
                     var centerY = (worldObject.PolygonPoints.Max((p) => p.Y) - worldObject.PolygonPoints.Min((p) => p.Y)) / 2;
@@ -53,7 +53,8 @@ namespace Simulation.WPF.ViewModels
 
                     Canvas.SetBottom(polygon, worldObject.Position.Y);
                     Canvas.SetLeft(polygon, worldObject.Position.X);
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
