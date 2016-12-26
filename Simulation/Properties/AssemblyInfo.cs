@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: InternalsVisibleTo("Simulation.Tests")]
+[assembly: InternalsVisibleTo("Simulation.UnitTests")]
 
 // Version information for an assembly consists of the following four values:
 //
