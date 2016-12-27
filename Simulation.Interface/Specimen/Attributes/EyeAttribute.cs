@@ -1,4 +1,4 @@
-﻿using System.Windows.Media;
+﻿using Simulation.Interface.Models;
 
 namespace Simulation.Interface.Specimen.Attributes
 {
@@ -11,7 +11,7 @@ namespace Simulation.Interface.Specimen.Attributes
 
         public double RotationOffsetRadians { get; }
 
-        public Color? DetectedColor { get; internal set; }
+        public RgbColor? DetectedColor { get; internal set; }
         public double? DetectionDistance { get; internal set; }
 
         internal override object CreateInternal<TParam>(ISpecimenAttributeFactory factory, TParam parameter)

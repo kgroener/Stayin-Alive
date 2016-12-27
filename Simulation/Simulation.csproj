@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{899EE0B1-376D-48B7-8152-D48BC5FB611C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Simulation</RootNamespace>
+    <AssemblyName>Simulation</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calculations\AreaCalculations.cs" />
+    <Compile Include="Calculations\NumberExtensions.cs" />
+    <Compile Include="Composition\CompositionContainer.cs" />
+    <Compile Include="Contracts\IRotateable.cs" />
+    <Compile Include="Logging\DebugLogAppender.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LogManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulation.cs" />
+    <Compile Include="SimulationSettings.cs" />
+    <Compile Include="World\ISimulationWorld.cs" />
+    <Compile Include="World\IUpdateable.cs" />
+    <Compile Include="World\IUpdateableWorldObject.cs" />
+    <Compile Include="World\IWorldObject.cs" />
+    <Compile Include="World\Physics\CollisionDetector.cs" />
+    <Compile Include="World\Physics\Line.cs" />
+    <Compile Include="World\Physics\VectorExtensions.cs" />
+    <Compile Include="World\SimulationWorld.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\AngularForceActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\ForceActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\ISpecimenInternalActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\RotationActuator.cs" />
+    <Compile Include="World\Specimen\Attributes\Actuators\SpecimenActuatorBase.cs" />
+    <Compile Include="World\Specimen\Attributes\EyeInternalAttribute.cs" />
+    <Compile Include="World\Specimen\Attributes\ISpecimenInternalAttribute.cs" />
+    <Compile Include="World\Specimen\Attributes\MotorInternalAttribute.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\ISpecimenInternalSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\ColorSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\RayCastingSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\SpecimenSensorBase.cs" />
+    <Compile Include="World\Specimen\Attributes\SpecimenAttributeFactory.cs" />
+    <Compile Include="World\Specimen\Attributes\SpecimenInternalAttributeBase.cs" />
+    <Compile Include="World\Specimen\ISpecimenInternal.cs" />
+    <Compile Include="World\Specimen\Specimen.cs" />
+    <Compile Include="World\Specimen\SpecimenManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Simulation.Interface\Simulation.Interface.csproj">
+      <Project>{cd8fabf8-c5e9-49ff-93b5-cd3e2aa45dd9}</Project>
+      <Name>Simulation.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

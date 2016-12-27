@@ -1,4 +1,5 @@
 ﻿using Simulation.Calculations;
+using Simulation.Interface.Models;
 using Simulation.Interface.Specimen;
 using Simulation.World.Physics;
 using Simulation.World.Specimen.Attributes;
@@ -6,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Windows.Media;
 
 namespace Simulation.World.Specimen
 {
@@ -38,7 +38,7 @@ namespace Simulation.World.Specimen
 
         public IEnumerable<Vector2> PolygonPoints => _specimenImplementation.PolygonPoints;
         public IEnumerable<ISpecimenInternalAttribute> Attributes => _attributes;
-        public Color Color => _specimenImplementation.Color;
+        public RgbColor Color => _specimenImplementation.Color;
         public double Weight => _weight;
         public double MaxAngularSpeed => 10 / Weight;
         public double MaxSpeed => 10 / Weight;
@@ -51,7 +51,7 @@ namespace Simulation.World.Specimen
 
         private double CalculateWeight()
         {
-            var shapeWeight = AreaCalculations.CalculatePolygonArea(_specimenImplementation.PolygonPoints)/10;
+            var shapeWeight = AreaCalculations.CalculatePolygonArea(_specimenImplementation.PolygonPoints) / 10;
             var attributeWeight = _attributes.Sum(a => a.Weight);
 
             return shapeWeight + attributeWeight;

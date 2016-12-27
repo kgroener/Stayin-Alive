@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Simulation.Interface.Models;
 using System.Collections.Generic;
 using System.Numerics;
-using System.Windows.Media;
 
 namespace Simulation.World
 {
@@ -10,6 +9,6 @@ namespace Simulation.World
         Vector2 Position { get; }
         double RotationRadians { get; }
         IEnumerable<Vector2> PolygonPoints { get; }
-        Color Color { get; }
+        RgbColor Color { get; }
     }
 }

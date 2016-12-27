@@ -4,20 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{899EE0B1-376D-48B7-8152-D48BC5FB611C}</ProjectGuid>
+    <ProjectGuid>{4C19BD39-A6EE-42F2-95AC-941FBBF9EC17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simulation</RootNamespace>
-    <AssemblyName>Simulation</AssemblyName>
+    <RootNamespace>Simulation.UnitTests</RootNamespace>
+    <AssemblyName>Simulation.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,10 +29,27 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Composition.AttributedModel, Version=1.0.31.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Composition.AttributedModel.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
@@ -60,82 +71,38 @@
       <HintPath>..\packages\System.Composition.TypedParts.1.0.31\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculations\NumberExtensions.cs" />
-    <Compile Include="Contracts\IRotateable.cs" />
-    <Compile Include="Composition\CompositionContainer.cs" />
-    <Compile Include="Calculations\AreaCalculations.cs" />
-    <Compile Include="Logging\DebugLogAppender.cs" />
-    <Compile Include="Logging\LogManager.cs" />
-    <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Simulation.cs" />
-    <Compile Include="SimulationSettings.cs" />
-    <Compile Include="World\ISimulationWorld.cs" />
-    <Compile Include="World\IUpdateable.cs" />
-    <Compile Include="World\IUpdateableWorldObject.cs" />
-    <Compile Include="World\IWorldObject.cs" />
-    <Compile Include="World\Physics\CollisionDetector.cs" />
-    <Compile Include="World\Physics\Line.cs" />
-    <Compile Include="World\Specimen\Attributes\Actuators\AngularForceActuator.cs" />
-    <Compile Include="World\Specimen\Attributes\Actuators\ISpecimenInternalActuator.cs" />
-    <Compile Include="World\Specimen\Attributes\Actuators\ForceActuator.cs" />
-    <Compile Include="World\Specimen\Attributes\Actuators\RotationActuator.cs" />
-    <Compile Include="World\Specimen\Attributes\Actuators\SpecimenActuatorBase.cs" />
-    <Compile Include="World\Specimen\Attributes\EyeInternalAttribute.cs" />
-    <Compile Include="World\Specimen\Attributes\ISpecimenInternalAttribute.cs" />
-    <Compile Include="World\Specimen\Attributes\MotorInternalAttribute.cs" />
-    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\ColorSensor.cs" />
-    <Compile Include="World\Specimen\Attributes\Sensors\ISpecimenInternalSensor.cs" />
-    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\RayCastingSensor.cs" />
-    <Compile Include="World\Specimen\Attributes\Sensors\SpecimenSensorBase.cs" />
-    <Compile Include="World\Specimen\Attributes\SpecimenAttributeFactory.cs" />
-    <Compile Include="World\Specimen\Attributes\SpecimenInternalAttributeBase.cs" />
-    <Compile Include="World\Physics\VectorExtensions.cs" />
-    <Compile Include="World\Specimen\ISpecimenInternal.cs" />
-    <Compile Include="World\Specimen\Specimen.cs" />
-    <Compile Include="World\Specimen\SpecimenManager.cs" />
-    <Compile Include="World\SimulationWorld.cs" />
+    <Compile Include="CollisionDetectionTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Simulation.Interface\Simulation.Interface.csproj">
-      <Project>{CD8FABF8-C5E9-49FF-93B5-CD3E2AA45DD9}</Project>
+      <Project>{cd8fabf8-c5e9-49ff-93b5-cd3e2aa45dd9}</Project>
       <Name>Simulation.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Simulation\Simulation.csproj">
+      <Project>{899ee0b1-376d-48b7-8152-d48bc5fb611c}</Project>
+      <Name>Simulation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

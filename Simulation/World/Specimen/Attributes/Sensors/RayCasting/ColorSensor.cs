@@ -1,7 +1,6 @@
 ﻿using Simulation.Interface.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Media;
 
 namespace Simulation.World.Specimen.Attributes.Sensors
 {
@@ -36,7 +35,7 @@ namespace Simulation.World.Specimen.Attributes.Sensors
 
         }
 
-        public Color? DetectedColor { get; private set; }
+        public RgbColor? DetectedColor { get; private set; }
         public double? DetectionDistance { get; private set; }
     }
 }
