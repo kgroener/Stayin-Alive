@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NN.DesktopRunner</id>
+    <version>1.0.0</version>
+    <authors>Koen Groener</authors>
+    <projectUrl>https://github.com/kgroener/Simulation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package will install the UI to run the simulation. All necessary files are copied to the output folder. Take a look at the project page for more installation instructions.</description>
+  </metadata>
+  <files>
+    <file src="Simulation.Runner.targets" target="build" />
+    <file src="Simulation.WPF\bin\Release\Simulation.dll" target="build" />
+    <file src="Simulation.WPF\bin\Release\Simulation.Interface.dll" target="build" />
+    <file src="Simulation.WPF\bin\Release\Simulation.Examples.dll" target="build" />
+    <file src="Simulation.WPF\bin\Release\Simulation.WPF.exe" target="build" />
+    <file src="Simulation.WPF\bin\Release\Simulation.WPF.exe.config" target="build" />
+  </files>
+</package>

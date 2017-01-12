@@ -15,6 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E2A55DA7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation.UnitTests", "Simulation.UnitTests\Simulation.UnitTests.csproj", "{4C19BD39-A6EE-42F2-95AC-941FBBF9EC17}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83F63B79-2DB1-4EB0-896E-EE3CD0D82CA1}"
+	ProjectSection(SolutionItems) = preProject
+		Simulation.Interface.nuspec = Simulation.Interface.nuspec
+		Simulation.Runner.nuspec = Simulation.Runner.nuspec
+		Simulation.Runner.targets = Simulation.Runner.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
