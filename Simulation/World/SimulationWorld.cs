@@ -7,26 +7,29 @@ namespace Simulation.World
 {
     internal class SimulationWorld : ISimulationWorld
     {
-        private List<IUpdateableWorldObject> _objects;
-        private IEnumerable<ISpecimenInternal> _population;
+        private List<IWorldObject> _objects;
+        private List<ISpecimenInternal> _population;
+        private readonly WorldBoundary _boundary;
 
         public IEnumerable<IWorldObject> Objects => UpdateableObjects;
-        public IEnumerable<IUpdateableWorldObject> UpdateableObjects => _population.Concat(_objects);
+        public IEnumerable<IUpdateableWorldObject> UpdateableObjects => _population.Concat(_objects.OfType<IUpdateableWorldObject>());
 
         public IEnumerable<ISpecimenInternal> Population => _population;
+        public WorldBoundary Boundary => _boundary;
 
-        public SimulationWorld()
+        public SimulationWorld(WorldBoundary boundary)
         {
-            _objects = new List<IUpdateableWorldObject>();
-            _population = Enumerable.Empty<ISpecimenInternal>();
+            _objects = new List<IWorldObject>();
+            _population = new List<Specimen.ISpecimenInternal>();
+            _boundary = boundary;
         }
 
         internal void Populate(IEnumerable<Specimen.Specimen> specimen)
         {
-            _population = specimen.ToArray();
+            _population = specimen.ToList<ISpecimenInternal>();
         }
 
-        internal void SpawnObject(IUpdateableWorldObject obj)
+        internal void SpawnObject(IWorldObject obj)
         {
             if (obj is ISpecimenInternal)
             {
@@ -34,6 +37,12 @@ namespace Simulation.World
             }
 
             _objects.Add(obj);
+        }
+
+        internal void RemoveMarkedObjects()
+        {
+            _objects.RemoveAll(o => o.MarkedForRemoval);
+            _population.RemoveAll(o => o.MarkedForRemoval);
         }
     }
 }

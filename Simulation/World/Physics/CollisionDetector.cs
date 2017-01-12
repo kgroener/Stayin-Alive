@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Numerics;
 
 namespace Simulation.World.Physics
@@ -52,6 +53,50 @@ namespace Simulation.World.Physics
             return CalculateLineSegementsIntersectionPoint(lineA, lineB).HasValue;
         }
 
+        internal static bool AreColliding(IWorldObject objA, IWorldObject objB)
+        {
+            var pointsA = objA.PolygonPoints.ToArray();
+            var pointsB = objB.PolygonPoints.ToArray();
 
+            for (int i = 0; i < pointsA.Length; i++)
+            {
+                Line edgeA = GetEdgeFromPointIndex(objA.Position, pointsA, i);
+
+                for (int j = 0; j < pointsB.Length; j++)
+                {
+                    Line edgeB = GetEdgeFromPointIndex(objB.Position, pointsB, j);
+
+                    if (AreColliding(edgeA, edgeB))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private static Line GetEdgeFromPointIndex(Vector2 position, Vector2[] pointsA, int pointIndex)
+        {
+            Line edgeA;
+            if (pointIndex == 0)
+            {
+                edgeA = new Line()
+                {
+                    Start = pointsA.Last() + position,
+                    End = pointsA[pointIndex] + position
+                };
+            }
+            else
+            {
+                edgeA = new Line()
+                {
+                    Start = pointsA[pointIndex - 1] + position,
+                    End = pointsA[pointIndex] + position
+                };
+            }
+
+            return edgeA;
+        }
     }
 }

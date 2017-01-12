@@ -1,4 +1,5 @@
 using Simulation.Interface.Specimen;
+using Simulation.World.Spawners;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Simulation.World.Specimen
 
             var specimenAbstracts = _specimenFactories.SelectMany((v) => v.CreateFirstGeneration(allowedGenerationSize).Take(allowedGenerationSize));
 
-            var specimen = specimenAbstracts.Select(s => new Specimen(world, s, new Vector2(_random.Next(200, 500), _random.Next(200, 500)), _random.NextDouble() * Math.PI * 2));
+            var specimen = specimenAbstracts.Select(s => new Specimen(world, s, SpawnPositionGenerator.CreateRandomWorldPosition(world), _random.NextDouble() * Math.PI * 2));
 
             world.Populate(specimen);
         }

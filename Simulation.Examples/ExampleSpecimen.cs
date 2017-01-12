@@ -54,27 +54,62 @@ namespace Simulation.Examples
                 return new Vector2[]
                 {
                     new Vector2(0,0),
-                    new Vector2(0,50),
-                    new Vector2(50,50),
-                    new Vector2(50,0),
+                    new Vector2(0,5),
+                    new Vector2(5,5),
+                    new Vector2(5,0),
                 };
             }
         }
 
         public void Update()
         {
-            if (_eyeAttributeFront.DetectionDistance.HasValue
-                && _eyeAttributeFront.DetectionDistance.Value < 100
-                )
+            if (_eyeAttributeFront.DetectedColor.HasValue && _eyeAttributeFront.DetectedColor.Value.R == 255 && _eyeAttributeFront.DetectionDistance.Value < 100)
             {
-                _motorAttribute.Throttle = _eyeAttributeFront.DetectionDistance.Value / 100;
+                _motorAttribute.Throttle = -1;
+            }
+            else if (_eyeAttributeFront.DetectionDistance.HasValue)
+            {
+                if (_eyeAttributeFront.DetectedColor.Value.G == 255 && _eyeAttributeFront.DetectionDistance.Value < 100)
+                {
+                    _motorAttribute.Steering = 0;
+                    _motorAttribute.Throttle = 1;
+                    return;
+                }
+                else
+                {
+                    _motorAttribute.Steering = 0.25;
+                    _motorAttribute.Throttle = -_eyeAttributeFront.DetectionDistance.Value / 500;
+                }
             }
             else
             {
                 _motorAttribute.Throttle = 1;
             }
 
-            _motorAttribute.Steering = ((500 - _eyeAttributeRight.DetectionDistance.GetValueOrDefault()) / 500 - (500 - _eyeAttributeLeft.DetectionDistance.GetValueOrDefault()) / 500);
+            if (_eyeAttributeLeft.DetectedColor.HasValue && _eyeAttributeLeft.DetectionDistance.Value < 100)
+            {
+                if (_eyeAttributeLeft.DetectedColor.Value.R == 255)
+                {
+                    _motorAttribute.Steering += 1;
+                }
+                else if (_eyeAttributeLeft.DetectedColor.Value.G == 255)
+                {
+                    _motorAttribute.Steering += -1;
+                }
+            }
+
+            if (_eyeAttributeRight.DetectedColor.HasValue && _eyeAttributeRight.DetectionDistance.Value < 100)
+            {
+                if (_eyeAttributeRight.DetectedColor.Value.R == 255)
+                {
+                    _motorAttribute.Steering += -1;
+                }
+                else if (_eyeAttributeRight.DetectedColor.Value.G == 255)
+                {
+                    _motorAttribute.Steering += 1;
+                }
+            }
+
         }
     }
 }

@@ -2,10 +2,13 @@
 using Simulation.Logging;
 using Simulation.Models;
 using Simulation.World;
+using Simulation.World.Physics;
+using Simulation.World.Spawners;
 using Simulation.World.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Composition;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +22,7 @@ namespace Simulation
         private readonly SpecimenManager _specimenManager;
         private bool _stopRequested;
         private readonly SimulationWorld _world;
+        private readonly IEnumerable<IObjectSpawner> _spawners;
 
         public ISimulationWorld World => _world;
 
@@ -32,8 +36,9 @@ namespace Simulation
             CompositionContainer.Resolve(this);
 
             _settings = settings;
-            _world = new SimulationWorld();
+            _world = new SimulationWorld(settings.WorldBoundary);
             _specimenManager = SetupSpecimenManager();
+            _spawners = settings.Spawners;
 
             _runningLock = new object();
         }
@@ -71,15 +76,39 @@ namespace Simulation
                                 var currentTimestamp = DateTime.Now;
                                 var updateDuration = currentTimestamp - lastUpdateTimestamp;
                                 lastUpdateTimestamp = currentTimestamp;
+                                Debug.WriteLine($"FPS: {1 / updateDuration.TotalSeconds}");
 
-                                foreach (var worldObjects in _world.UpdateableObjects)
+                                foreach (var worldObject in _world.UpdateableObjects)
                                 {
-                                    worldObjects.Update(updateDuration);
+                                    worldObject.Update(updateDuration);
+
+                                    foreach (var objB in _world.Objects.ToArray())
+                                    {
+                                        if (worldObject == objB) { continue; }
+
+                                        var colliding = CollisionDetector.AreColliding(worldObject, objB);
+                                        if (colliding)
+                                        {
+                                            worldObject.OnCollision(objB);
+                                        }
+                                    }
                                 }
+
+                                foreach (var spawner in _spawners)
+                                {
+                                    foreach (var obj in spawner.GetNewObjectsToSpawn(_world))
+                                    {
+                                        _world.SpawnObject(obj);
+                                    }
+                                }
+
+                                _world.RemoveMarkedObjects();
 
                                 Updated?.Invoke(this, EventArgs.Empty);
                             }
                         }
+
+
                     }
                     catch (Exception ex)
                     {

@@ -10,5 +10,8 @@ namespace Simulation.World
         double RotationRadians { get; }
         IEnumerable<Vector2> PolygonPoints { get; }
         RgbColor Color { get; }
+        bool MarkedForRemoval { get; set; }
+
+        void OnCollision(IWorldObject collidedObject);
     }
 }

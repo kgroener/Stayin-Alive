@@ -9,7 +9,7 @@ namespace Simulation.World.Physics
         {
             var direction = new Vector2((float)Math.Cos(directionRadians), -(float)Math.Sin(directionRadians));
 
-            return position + Vector2.Multiply(direction, (float)(speed_pps / updateDuration.TotalSeconds));
+            return position + Vector2.Multiply(direction, (float)(speed_pps * updateDuration.TotalSeconds));
         }
 
         public static Vector2 Translate(this Vector2 position, double directionRadians, double length)

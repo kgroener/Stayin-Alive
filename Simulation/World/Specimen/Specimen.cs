@@ -40,14 +40,16 @@ namespace Simulation.World.Specimen
         public IEnumerable<ISpecimenInternalAttribute> Attributes => _attributes;
         public RgbColor Color => _specimenImplementation.Color;
         public double Weight => _weight;
-        public double MaxAngularSpeed => 10 / Weight;
-        public double MaxSpeed => 10 / Weight;
+        public double MaxAngularSpeed => 100 / Weight;
+        public double MaxSpeed => 300 / Weight;
         public Vector2 Position { get; private set; }
         public double RotationRadians { get; private set; }
         public double ActualSpeed => _speed;
         public double ActualAngularSpeed => _angularSpeed;
 
         public double HealthPoints => _healthPoints;
+
+        public bool MarkedForRemoval { get; set; }
 
         private double CalculateWeight()
         {
@@ -79,6 +81,14 @@ namespace Simulation.World.Specimen
 
         public void Update(TimeSpan lastUpdateDuration)
         {
+            _healthPoints -= 1 * lastUpdateDuration.TotalSeconds;
+
+            if (_healthPoints <= 0)
+            {
+                MarkedForRemoval = true;
+                return;
+            }
+
             foreach (var attribute in _attributes)
             {
                 attribute.UpdateSensors(_world);
@@ -86,13 +96,16 @@ namespace Simulation.World.Specimen
 
             _specimenImplementation.Update();
 
-            _totalAngularForce /= 100;
-            _totalForce /= 4;
+            _totalAngularForce -= 0; //_totalAngularForce * lastUpdateDuration.TotalSeconds/10;
+            _totalForce -= _totalForce * lastUpdateDuration.TotalSeconds/100;
 
             foreach (var attribute in _attributes)
             {
                 attribute.UpdateActuators(_world);
             }
+
+            _totalForce *= lastUpdateDuration.TotalSeconds;
+            _totalAngularForce *= lastUpdateDuration.TotalSeconds;
 
             if (Math.Abs(_totalForce) < 0.0001)
             {
@@ -104,14 +117,19 @@ namespace Simulation.World.Specimen
                 _totalAngularForce = 0;
             }
 
-            _speed += (_totalForce * lastUpdateDuration.TotalSeconds) / Weight;
+            _speed += (_totalForce * 10) / Weight;
             _speed = _speed.Clip(-MaxSpeed, MaxSpeed);
 
-            _angularSpeed += (_totalAngularForce * lastUpdateDuration.TotalSeconds) / Weight;
+            _angularSpeed = (_totalAngularForce * 100) / Weight;
             _angularSpeed = _angularSpeed.Clip(-MaxAngularSpeed, MaxAngularSpeed);
 
-            RotationRadians += _angularSpeed;
+            RotationRadians += _angularSpeed * lastUpdateDuration.TotalSeconds;
             Position = Position.Move(RotationRadians, _speed, lastUpdateDuration);
+        }
+
+        public void OnCollision(IWorldObject collidedObject)
+        {
+
         }
     }
 }
