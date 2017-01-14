@@ -10,7 +10,7 @@
 Our goal is to make developing neural networks fun.
 
 ## Intro
-We ([@kgroener](https://github.com/kgroener) and [@tomkuijsten](https://github.com/tomkuijsten)) started creating neural networks for fun, just to see if we could create them and teach them something. It actually worked pretty soon, but the it was kind of... boring. It was all console stuff and the only output we saw was ASCII art at best. That's no fun! @kgroener came up with the idea to create a game where you could "plugin" your neural network and see how good it was in certain situations. That's what sparked the idea of .... (project name)
+We ([@kgroener](https://github.com/kgroener) and [@tomkuijsten](https://github.com/tomkuijsten)) started creating neural networks for fun, just to see if we could create them and teach them something. It actually worked pretty soon, but then it became kind of... boring. It was all console stuff and the only output we saw was ASCII art at best. That's no fun! @kgroener came up with the idea to create a game where you could "plugin" your neural network and see how good it was in certain situations. That's what sparked the idea of Stayin' Alive
 
 ## Get started
 If you want to create your own "player" in the game, there are a few easy steps to follow:
