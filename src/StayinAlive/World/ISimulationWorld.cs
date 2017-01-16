@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Simulation.World
+namespace StayinAlive.World
 {
     public interface ISimulationWorld
     {

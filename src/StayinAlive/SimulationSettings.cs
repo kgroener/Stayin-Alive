@@ -1,8 +1,8 @@
-﻿using Simulation.World;
-using Simulation.World.Spawners;
+﻿using StayinAlive.World;
+using StayinAlive.World.Spawners;
 using System.Collections.Generic;
 
-namespace Simulation
+namespace StayinAlive
 {
     public class SimulationSettings
     {

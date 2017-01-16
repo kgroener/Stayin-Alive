@@ -1,7 +1,7 @@
-﻿using Simulation.Logging;
+﻿using StayinAlive.Logging;
 using System.Windows;
 
-namespace Simulator.WPF
+namespace StayinAlive.WPF
 {
     /// <summary>
     /// Interaction logic for App.xaml

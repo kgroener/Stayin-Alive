@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Simulation.World.Spawners
+namespace StayinAlive.World.Spawners
 {
     public interface IObjectSpawner
     {

@@ -1,4 +1,4 @@
-﻿namespace Simulation.Interface.Models
+﻿namespace StayinAlive.Interface.Models
 {
     public struct MinusOneToOneRange
     {

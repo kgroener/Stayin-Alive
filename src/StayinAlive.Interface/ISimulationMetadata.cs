@@ -1,7 +1,7 @@
-﻿using Simulation.Interface.Logging;
-using Simulation.Interface.Specimen;
+﻿using StayinAlive.Interface.Logging;
+using StayinAlive.Interface.Specimen;
 
-namespace Simulation.Interface
+namespace StayinAlive.Interface
 {
     public interface ISimulationMetadata
     {

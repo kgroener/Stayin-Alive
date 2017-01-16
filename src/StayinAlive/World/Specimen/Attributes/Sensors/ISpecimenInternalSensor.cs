@@ -1,4 +1,4 @@
-﻿namespace Simulation.World.Specimen.Attributes.Sensors
+﻿namespace StayinAlive.World.Specimen.Attributes.Sensors
 {
     interface ISpecimenInternalSensor
     {

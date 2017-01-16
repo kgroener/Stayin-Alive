@@ -1,10 +1,10 @@
-﻿using Simulation.Interface.Models;
-using Simulation.World.Specimen;
+﻿using StayinAlive.Interface.Models;
+using StayinAlive.World.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Simulation.World.Spawners
+namespace StayinAlive.World.Spawners
 {
     internal class FoodPallet : IUpdateableWorldObject
     {

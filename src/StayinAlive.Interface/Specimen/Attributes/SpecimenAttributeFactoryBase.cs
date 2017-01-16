@@ -1,4 +1,4 @@
-﻿namespace Simulation.Interface.Specimen.Attributes
+﻿namespace StayinAlive.Interface.Specimen.Attributes
 {
     internal interface ISpecimenAttributeFactory
     {

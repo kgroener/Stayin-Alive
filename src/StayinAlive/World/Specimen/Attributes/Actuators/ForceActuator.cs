@@ -1,4 +1,4 @@
-﻿namespace Simulation.World.Specimen.Attributes.Actuators
+﻿namespace StayinAlive.World.Specimen.Attributes.Actuators
 {
     internal class ForceActuator : SpecimenActuatorBase
     {

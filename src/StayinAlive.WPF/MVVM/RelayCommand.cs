@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Simulation.WPF.MVVM
+namespace StayinAlive.WPF.MVVM
 {
     public class RelayCommand : ICommand
     {

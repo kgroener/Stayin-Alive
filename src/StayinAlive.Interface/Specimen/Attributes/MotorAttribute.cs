@@ -1,6 +1,6 @@
-﻿using Simulation.Interface.Models;
+﻿using StayinAlive.Interface.Models;
 
-namespace Simulation.Interface.Specimen.Attributes
+namespace StayinAlive.Interface.Specimen.Attributes
 {
     public class MotorAttribute : SpecimenAttributeBase
     {

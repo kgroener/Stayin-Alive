@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Simulation.WPF.MVVM
+namespace StayinAlive.WPF.MVVM
 {
     public class UIHelper
     {

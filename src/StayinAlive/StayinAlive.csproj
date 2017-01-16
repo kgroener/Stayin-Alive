@@ -8,8 +8,8 @@
     <ProjectGuid>{899EE0B1-376D-48B7-8152-D48BC5FB611C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simulation</RootNamespace>
-    <AssemblyName>Simulation</AssemblyName>
+    <RootNamespace>StayinAlive</RootNamespace>
+    <AssemblyName>StayinAlive</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

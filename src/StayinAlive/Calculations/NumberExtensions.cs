@@ -1,4 +1,4 @@
-﻿namespace Simulation.Calculations
+﻿namespace StayinAlive.Calculations
 {
     internal static class NumberExtensions
     {

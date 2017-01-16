@@ -1,8 +1,8 @@
-﻿using Simulation.Interface.Models;
+﻿using StayinAlive.Interface.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simulation.World.Specimen.Attributes.Sensors
+namespace StayinAlive.World.Specimen.Attributes.Sensors
 {
     internal class ColorSensor : RayCastingSensor
     {

@@ -1,8 +1,8 @@
-﻿using Simulation.World;
-using Simulation.World.Spawners;
+﻿using StayinAlive.World;
+using StayinAlive.World.Spawners;
 using System;
 
-namespace Simulation.WPF
+namespace StayinAlive.WPF
 {
     internal static class SimulationManager
     {

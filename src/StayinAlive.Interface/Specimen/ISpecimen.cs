@@ -1,9 +1,9 @@
-﻿using Simulation.Interface.Models;
-using Simulation.Interface.Specimen.Attributes;
+﻿using StayinAlive.Interface.Models;
+using StayinAlive.Interface.Specimen.Attributes;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Simulation.Interface.Specimen
+namespace StayinAlive.Interface.Specimen
 {
     public interface ISpecimen
     {

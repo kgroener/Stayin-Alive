@@ -4,16 +4,16 @@ using System.Runtime.CompilerServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Simulation.Interface")]
+[assembly: AssemblyTitle("StayinAlive.Interface")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Simulation.Interface")]
+[assembly: AssemblyProduct("StayinAlive.Interface")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: InternalsVisibleTo("Simulation")]
+[assembly: InternalsVisibleTo("StayinAlive")]
 
 // Version information for an assembly consists of the following four values:
 //

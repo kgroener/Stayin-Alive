@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Numerics;
 
-namespace Simulation.World.Physics
+namespace StayinAlive.World.Physics
 {
     internal static class CollisionDetector
     {

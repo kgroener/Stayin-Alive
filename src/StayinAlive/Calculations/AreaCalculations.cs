@@ -1,10 +1,10 @@
-﻿using Simulation.Interface.Models;
+﻿using StayinAlive.Interface.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace Simulation.Calculations
+namespace StayinAlive.Calculations
 {
     internal static class AreaCalculations
     {

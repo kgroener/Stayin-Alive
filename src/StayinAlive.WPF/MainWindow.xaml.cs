@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Simulation.WPF
+namespace StayinAlive.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

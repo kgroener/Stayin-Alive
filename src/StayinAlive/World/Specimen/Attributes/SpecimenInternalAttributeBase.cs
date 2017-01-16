@@ -1,9 +1,9 @@
-﻿using Simulation.Interface.Specimen;
-using Simulation.World.Specimen.Attributes.Actuators;
-using Simulation.World.Specimen.Attributes.Sensors;
+﻿using StayinAlive.Interface.Specimen;
+using StayinAlive.World.Specimen.Attributes.Actuators;
+using StayinAlive.World.Specimen.Attributes.Sensors;
 using System.Collections.Generic;
 
-namespace Simulation.World.Specimen.Attributes
+namespace StayinAlive.World.Specimen.Attributes
 {
     internal abstract class SpecimenInternalAttributeBase<TAttribute> : ISpecimenInternalAttribute where TAttribute : ISpecimenAttribute
     {

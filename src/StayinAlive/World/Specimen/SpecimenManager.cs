@@ -1,11 +1,11 @@
-using Simulation.Interface.Specimen;
-using Simulation.World.Spawners;
+using StayinAlive.Interface.Specimen;
+using StayinAlive.World.Spawners;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace Simulation.World.Specimen
+namespace StayinAlive.World.Specimen
 {
     internal class SpecimenManager
     {

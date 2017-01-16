@@ -1,7 +1,7 @@
-﻿using Simulation.Interface.Logging;
+﻿using StayinAlive.Interface.Logging;
 using System.Collections.Concurrent;
 
-namespace Simulation.Logging
+namespace StayinAlive.Logging
 {
     public static class LogManager
     {

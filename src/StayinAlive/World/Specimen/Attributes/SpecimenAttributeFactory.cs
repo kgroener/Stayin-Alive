@@ -1,6 +1,6 @@
-﻿using Simulation.Interface.Specimen.Attributes;
+﻿using StayinAlive.Interface.Specimen.Attributes;
 
-namespace Simulation.World.Specimen.Attributes
+namespace StayinAlive.World.Specimen.Attributes
 {
     internal class SpecimenAttributeFactory : ISpecimenAttributeFactory
     {

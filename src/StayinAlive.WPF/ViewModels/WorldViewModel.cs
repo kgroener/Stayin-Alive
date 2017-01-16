@@ -1,5 +1,5 @@
-﻿using Simulation.World;
-using Simulation.WPF.MVVM;
+﻿using StayinAlive.World;
+using StayinAlive.WPF.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace Simulation.WPF.ViewModels
+namespace StayinAlive.WPF.ViewModels
 {
     internal class WorldViewModel : ViewModelBase
     {

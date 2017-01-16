@@ -1,12 +1,12 @@
-using Simulation.Interface.Logging;
-using Simulation.Interface.Models;
-using Simulation.Interface.Specimen;
-using Simulation.Interface.Specimen.Attributes;
+using StayinAlive.Interface.Logging;
+using StayinAlive.Interface.Models;
+using StayinAlive.Interface.Specimen;
+using StayinAlive.Interface.Specimen.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Simulation.Examples
+namespace StayinAlive.Examples
 {
     internal class ExampleSpecimen : ISpecimen
     {

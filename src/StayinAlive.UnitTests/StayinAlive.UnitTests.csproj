@@ -7,8 +7,8 @@
     <ProjectGuid>{4C19BD39-A6EE-42F2-95AC-941FBBF9EC17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simulation.UnitTests</RootNamespace>
-    <AssemblyName>Simulation.UnitTests</AssemblyName>
+    <RootNamespace>StayinAlive.UnitTests</RootNamespace>
+    <AssemblyName>StayinAlive.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,7 +1,7 @@
-﻿using Simulation.Contracts;
+﻿using StayinAlive.Contracts;
 using System;
 
-namespace Simulation.World.Specimen.Attributes.Actuators
+namespace StayinAlive.World.Specimen.Attributes.Actuators
 {
     internal class RotationActuator : SpecimenActuatorBase
     {

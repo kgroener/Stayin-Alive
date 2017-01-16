@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace Simulation.World
+namespace StayinAlive.World
 {
     public class WorldBoundary
     {

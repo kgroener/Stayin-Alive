@@ -1,14 +1,14 @@
-﻿using Simulation.Calculations;
-using Simulation.Interface.Models;
-using Simulation.Interface.Specimen;
-using Simulation.World.Physics;
-using Simulation.World.Specimen.Attributes;
+﻿using StayinAlive.Calculations;
+using StayinAlive.Interface.Models;
+using StayinAlive.Interface.Specimen;
+using StayinAlive.World.Physics;
+using StayinAlive.World.Specimen.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace Simulation.World.Specimen
+namespace StayinAlive.World.Specimen
 {
     internal class Specimen : ISpecimenInternal
     {

@@ -1,8 +1,8 @@
-using Simulation.Interface.Logging;
-using Simulation.Interface.Specimen;
+using StayinAlive.Interface.Logging;
+using StayinAlive.Interface.Specimen;
 using System.Collections.Generic;
 
-namespace Simulation.Examples
+namespace StayinAlive.Examples
 {
     [ExportSpecimenFactory]
     public class ExampleSpecimenFactory : ISpecimenFactory

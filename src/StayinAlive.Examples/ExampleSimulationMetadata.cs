@@ -1,9 +1,9 @@
-﻿using Simulation.Interface;
-using Simulation.Interface.Logging;
-using Simulation.Interface.Specimen;
+﻿using StayinAlive.Interface;
+using StayinAlive.Interface.Logging;
+using StayinAlive.Interface.Specimen;
 using System.Composition;
 
-namespace Simulation.Examples
+namespace StayinAlive.Examples
 {
     [Export(typeof(ISimulationMetadata))]
     public class ExampleSimulationMetadata : ISimulationMetadata

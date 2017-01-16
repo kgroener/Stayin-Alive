@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Simulation.WPF.Views
+namespace StayinAlive.WPF.Views
 {
     /// <summary>
     /// Interaction logic for InformationView.xaml

@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Threading;
 using System.Runtime.CompilerServices;
 
-namespace Simulation.WPF.MVVM
+namespace StayinAlive.WPF.MVVM
 {
     /// <summary>
     /// Implementation is like the version in Microsoft PRISM

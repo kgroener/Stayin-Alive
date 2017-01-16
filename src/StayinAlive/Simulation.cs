@@ -1,10 +1,10 @@
-﻿using Simulation.Interface;
-using Simulation.Logging;
-using Simulation.Models;
-using Simulation.World;
-using Simulation.World.Physics;
-using Simulation.World.Spawners;
-using Simulation.World.Specimen;
+﻿using StayinAlive.Interface;
+using StayinAlive.Logging;
+using StayinAlive.Models;
+using StayinAlive.World;
+using StayinAlive.World.Physics;
+using StayinAlive.World.Spawners;
+using StayinAlive.World.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -12,7 +12,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Simulation
+namespace StayinAlive
 {
     public class Simulation
     {

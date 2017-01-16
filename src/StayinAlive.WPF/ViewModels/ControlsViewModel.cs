@@ -1,7 +1,7 @@
 ﻿using System;
-using Simulation.WPF.MVVM;
+using StayinAlive.WPF.MVVM;
 
-namespace Simulation.WPF.ViewModels
+namespace StayinAlive.WPF.ViewModels
 {
 
 

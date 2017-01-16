@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Simulation.Interface.Specimen
+namespace StayinAlive.Interface.Specimen
 {
     public interface ISpecimenFactory
     {

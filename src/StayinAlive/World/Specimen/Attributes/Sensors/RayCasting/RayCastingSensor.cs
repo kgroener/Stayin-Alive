@@ -1,10 +1,10 @@
-﻿using Simulation.Contracts;
-using Simulation.Interface.Models;
-using Simulation.World.Physics;
+﻿using StayinAlive.Contracts;
+using StayinAlive.Interface.Models;
+using StayinAlive.World.Physics;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simulation.World.Specimen.Attributes.Sensors
+namespace StayinAlive.World.Specimen.Attributes.Sensors
 {
     internal abstract class RayCastingSensor : SpecimenSensorBase, IRotateable
     {

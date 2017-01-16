@@ -1,8 +1,8 @@
-﻿using Simulation.Interface.Models;
+﻿using StayinAlive.Interface.Models;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Simulation.World
+namespace StayinAlive.World
 {
     public interface IWorldObject
     {

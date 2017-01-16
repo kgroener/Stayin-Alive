@@ -1,7 +1,7 @@
-﻿using Simulation.World.Specimen.Attributes;
+﻿using StayinAlive.World.Specimen.Attributes;
 using System.Collections.Generic;
 
-namespace Simulation.World.Specimen
+namespace StayinAlive.World.Specimen
 {
     internal interface ISpecimenInternal : IUpdateableWorldObject
     {

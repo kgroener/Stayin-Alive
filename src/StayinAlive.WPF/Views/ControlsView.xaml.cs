@@ -1,4 +1,4 @@
-﻿using Simulation.WPF.ViewModels;
+﻿using StayinAlive.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Simulation.WPF.Views
+namespace StayinAlive.WPF.Views
 {
     /// <summary>
     /// Interaction logic for ControlsView.xaml

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Simulation.World.Physics
+namespace StayinAlive.World.Physics
 {
     internal static class VectorExtensions
     {

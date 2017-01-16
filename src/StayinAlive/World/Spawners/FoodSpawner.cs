@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Numerics;
 
-namespace Simulation.World.Spawners
+namespace StayinAlive.World.Spawners
 {
     public sealed class FoodSpawner : IObjectSpawner
     {

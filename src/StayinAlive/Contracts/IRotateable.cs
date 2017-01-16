@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simulation.Contracts
+namespace StayinAlive.Contracts
 {
     internal interface IRotateable
     {

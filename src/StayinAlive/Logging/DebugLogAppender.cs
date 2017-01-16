@@ -1,8 +1,8 @@
-﻿using Simulation.Interface.Logging;
+﻿using StayinAlive.Interface.Logging;
 using System.Composition;
 using System.Diagnostics;
 
-namespace Simulation.Logging
+namespace StayinAlive.Logging
 {
     [Export(typeof(ILogAppender))]
     public class DebugLogAppender : ILogAppender

@@ -1,9 +1,9 @@
-﻿using Simulation.World.Specimen;
+﻿using StayinAlive.World.Specimen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simulation.World
+namespace StayinAlive.World
 {
     internal class SimulationWorld : ISimulationWorld
     {

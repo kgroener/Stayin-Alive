@@ -1,6 +1,6 @@
-﻿using Simulation.Interface.Models;
+﻿using StayinAlive.Interface.Models;
 
-namespace Simulation.World.Specimen.Attributes.Actuators
+namespace StayinAlive.World.Specimen.Attributes.Actuators
 {
     internal abstract class SpecimenActuatorBase : ISpecimenInternalActuator
     {

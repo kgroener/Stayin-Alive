@@ -1,4 +1,4 @@
-﻿namespace Simulation.Interface.Specimen
+﻿namespace StayinAlive.Interface.Specimen
 {
     public interface ISpecimenAttribute
     {

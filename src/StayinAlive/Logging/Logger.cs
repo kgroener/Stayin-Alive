@@ -1,10 +1,10 @@
-﻿using Simulation.Interface.Logging;
-using Simulation.Models;
+﻿using StayinAlive.Interface.Logging;
+using StayinAlive.Models;
 using System;
 using System.Collections.Generic;
 using System.Composition;
 
-namespace Simulation.Logging
+namespace StayinAlive.Logging
 {
     internal class Logger : ILogger
     {

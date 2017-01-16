@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Simulation.World.Spawners
+namespace StayinAlive.World.Spawners
 {
     internal static class SpawnPositionGenerator
     {

@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Simulation.World;
-using Simulation.WPF.ViewModels;
+using StayinAlive.World;
+using StayinAlive.WPF.ViewModels;
 
-namespace Simulation.WPF.Views
+namespace StayinAlive.WPF.Views
 {
     /// <summary>
     /// Interaction logic for WorldView.xaml

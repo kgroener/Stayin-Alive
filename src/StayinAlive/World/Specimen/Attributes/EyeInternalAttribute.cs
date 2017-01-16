@@ -1,11 +1,11 @@
-﻿using Simulation.Interface.Specimen.Attributes;
-using Simulation.World.Specimen.Attributes.Actuators;
-using Simulation.World.Specimen.Attributes.Sensors;
+﻿using StayinAlive.Interface.Specimen.Attributes;
+using StayinAlive.World.Specimen.Attributes.Actuators;
+using StayinAlive.World.Specimen.Attributes.Sensors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simulation.World.Specimen.Attributes
+namespace StayinAlive.World.Specimen.Attributes
 {
     internal class EyeInternalAttribute : SpecimenInternalAttributeBase<EyeAttribute>
     {

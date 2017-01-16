@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Composition;
 
-namespace Simulation.Interface.Specimen
+namespace StayinAlive.Interface.Specimen
 {
     public class ExportSpecimenFactoryAttribute : ExportAttribute
     {

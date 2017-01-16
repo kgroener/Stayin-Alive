@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
-using Simulation.World.Physics;
+using StayinAlive.World.Physics;
 using System.Numerics;
 
-namespace Simulation.Tests
+namespace StayinAlive.Tests
 {
     public class CollisionDetectionTests
     {

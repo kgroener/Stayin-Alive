@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Simulation.Models
+namespace StayinAlive.Models
 {
     internal static class CompositionContainer
     {
