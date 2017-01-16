@@ -39,6 +39,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Calculations\AreaCalculations.cs" />
     <Compile Include="Calculations\NumberExtensions.cs" />
     <Compile Include="Composition\CompositionContainer.cs" />
