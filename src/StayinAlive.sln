@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation", "Simulation\Simulation.csproj", "{899EE0B1-376D-48B7-8152-D48BC5FB611C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayinAlive", "StayinAlive\StayinAlive.csproj", "{899EE0B1-376D-48B7-8152-D48BC5FB611C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation.Interface", "Simulation.Interface\Simulation.Interface.csproj", "{CD8FABF8-C5E9-49FF-93B5-CD3E2AA45DD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayinAlive.Interface", "StayinAlive.Interface\StayinAlive.Interface.csproj", "{CD8FABF8-C5E9-49FF-93B5-CD3E2AA45DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation.WPF", "Simulation.WPF\Simulation.WPF.csproj", "{8D03C58E-7ECE-415F-8B68-F4485E566CA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayinAlive.WPF", "StayinAlive.WPF\StayinAlive.WPF.csproj", "{8D03C58E-7ECE-415F-8B68-F4485E566CA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation.Examples", "Simulation.Examples\Simulation.Examples.csproj", "{D4574A13-EED3-4ECE-98E4-22C9C32A0A22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayinAlive.Examples", "StayinAlive.Examples\StayinAlive.Examples.csproj", "{D4574A13-EED3-4ECE-98E4-22C9C32A0A22}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E2A55DA7-4C67-4EF4-A1D9-3FD315DC72C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation.UnitTests", "Simulation.UnitTests\Simulation.UnitTests.csproj", "{4C19BD39-A6EE-42F2-95AC-941FBBF9EC17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayinAlive.UnitTests", "StayinAlive.UnitTests\StayinAlive.UnitTests.csproj", "{4C19BD39-A6EE-42F2-95AC-941FBBF9EC17}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83F63B79-2DB1-4EB0-896E-EE3CD0D82CA1}"
 	ProjectSection(SolutionItems) = preProject

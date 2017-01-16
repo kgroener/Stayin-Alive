@@ -81,7 +81,7 @@
     <Compile Include="World\WorldBoundary.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simulation.Interface\Simulation.Interface.csproj">
+    <ProjectReference Include="..\StayinAlive.Interface\StayinAlive.Interface.csproj">
       <Project>{cd8fabf8-c5e9-49ff-93b5-cd3e2aa45dd9}</Project>
       <Name>Simulation.Interface</Name>
     </ProjectReference>
