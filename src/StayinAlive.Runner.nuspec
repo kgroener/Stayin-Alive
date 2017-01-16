@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>StayinAlive.Runner</id>
+    <version>1.0.0</version>
+    <authors>koengroener,tomkuijsten</authors>
+    <projectUrl>https://github.com/kgroener/Stayin-Alive</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package will install the UI to run your StayinAlive implementation. All necessary files are copied to the output folder. Take a look at the project page for more installation instructions.</description>
+  </metadata>
+  <files>
+    <file src="StayinAlive.Runner.targets" target="build" />
+    <file src="StayinAlive.WPF\bin\Release\StayinAlive.dll" target="build" />
+    <file src="StayinAlive.WPF\bin\Release\StayinAlive.Interface.dll" target="build" />
+    <file src="StayinAlive.WPF\bin\Release\StayinAlive.WPF.exe" target="build" />
+    <file src="StayinAlive.WPF\bin\Release\StayinAlive.WPF.exe.config" target="build" />
+  </files>
+</package>

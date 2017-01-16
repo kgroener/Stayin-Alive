@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayinAlive.UnitTests", "St
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83F63B79-2DB1-4EB0-896E-EE3CD0D82CA1}"
 	ProjectSection(SolutionItems) = preProject
-		Simulation.Interface.nuspec = Simulation.Interface.nuspec
-		Simulation.Runner.nuspec = Simulation.Runner.nuspec
-		Simulation.Runner.targets = Simulation.Runner.targets
+		StayinAlive.nuspec = StayinAlive.nuspec
+		StayinAlive.Runner.nuspec = StayinAlive.Runner.nuspec
+		StayinAlive.Runner.targets = StayinAlive.Runner.targets
 	EndProjectSection
 EndProject
 Global
