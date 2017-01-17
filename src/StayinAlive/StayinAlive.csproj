@@ -44,6 +44,7 @@
     </Compile>
     <Compile Include="Calculations\AreaCalculations.cs" />
     <Compile Include="Calculations\NumberExtensions.cs" />
+    <Compile Include="Calculations\PolygonExtensions.cs" />
     <Compile Include="Composition\CompositionContainer.cs" />
     <Compile Include="Contracts\IRotateable.cs" />
     <Compile Include="Logging\DebugLogAppender.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="World\Specimen\Attributes\MotorInternalAttribute.cs" />
     <Compile Include="World\Specimen\Attributes\Sensors\ISpecimenInternalSensor.cs" />
     <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\ColorSensor.cs" />
+    <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\VisionSensor.cs" />
     <Compile Include="World\Specimen\Attributes\Sensors\RayCasting\RayCastingSensor.cs" />
     <Compile Include="World\Specimen\Attributes\Sensors\SpecimenSensorBase.cs" />
     <Compile Include="World\Specimen\Attributes\SpecimenAttributeFactory.cs" />
