@@ -21,22 +21,39 @@ namespace StayinAlive.World.Specimen
         private double _angularSpeed;
         private readonly SimulationWorld _world;
         private double _healthPoints;
+        private readonly IEnumerable<Vector2> _normalizedPolygonPoints;
+        private float _sizeScale;
 
-        public Specimen(SimulationWorld world, ISpecimen specimen, Vector2 initialPosition, double initialRotation)
+        public Specimen(SimulationWorld world, ISpecimen specimen, Vector2 initialPosition, double initialRotation, float sizeScale)
         {
             _world = world;
             _specimenImplementation = specimen;
+
+            var specimenAttributeFactory = new SpecimenAttributeFactory();
+            _attributes = specimen.Attributes.Select(a => specimenAttributeFactory.CreateInternalAttribute(a, this));
+
+            _normalizedPolygonPoints = specimen.PolygonPoints.Normalize();
+            _weight = CalculateWeight();
+            _sizeScale = sizeScale;
 
             _healthPoints = 100;
             Position = initialPosition;
             RotationRadians = initialRotation;
 
-            var specimenAttributeFactory = new SpecimenAttributeFactory();
-            _attributes = specimen.Attributes.Select(a => specimenAttributeFactory.CreateInternalAttribute(a, this));
-            _weight = CalculateWeight();
         }
 
-        public IEnumerable<Vector2> PolygonPoints => _specimenImplementation.PolygonPoints;
+        public IEnumerable<Vector2> PolygonPoints => _normalizedPolygonPoints.Select(p => p * _sizeScale).Select(RotatePolygonPoint);
+
+        private Vector2 RotatePolygonPoint(Vector2 p)
+        {
+            double cosAngle = Math.Cos(RotationRadians);
+            double sinAngle = Math.Sin(RotationRadians);
+
+            var x = (float)(p.X * cosAngle - p.Y * sinAngle);
+            var y = (float)(p.X * sinAngle + p.Y * cosAngle);
+            return new Vector2(x, y);
+        }
+
         public IEnumerable<ISpecimenInternalAttribute> Attributes => _attributes;
         public RgbColor Color => _specimenImplementation.Color;
         public double Weight => _weight;
@@ -53,7 +70,7 @@ namespace StayinAlive.World.Specimen
 
         private double CalculateWeight()
         {
-            var shapeWeight = AreaCalculations.CalculatePolygonArea(_specimenImplementation.PolygonPoints) / 10;
+            var shapeWeight = AreaCalculations.CalculatePolygonArea(PolygonPoints) / 10;
             var attributeWeight = _attributes.Sum(a => a.Weight);
 
             return shapeWeight + attributeWeight;
@@ -97,7 +114,7 @@ namespace StayinAlive.World.Specimen
             _specimenImplementation.Update();
 
             _totalAngularForce -= 0; //_totalAngularForce * lastUpdateDuration.TotalSeconds/10;
-            _totalForce -= _totalForce * lastUpdateDuration.TotalSeconds/100;
+            _totalForce -= _totalForce * lastUpdateDuration.TotalSeconds / 100;
 
             foreach (var attribute in _attributes)
             {
@@ -117,14 +134,14 @@ namespace StayinAlive.World.Specimen
                 _totalAngularForce = 0;
             }
 
-            _speed += (_totalForce * 10) / Weight;
+            _speed += (_totalForce * 30) / Weight;
             _speed = _speed.Clip(-MaxSpeed, MaxSpeed);
 
             _angularSpeed = (_totalAngularForce * 100) / Weight;
             _angularSpeed = _angularSpeed.Clip(-MaxAngularSpeed, MaxAngularSpeed);
 
             RotationRadians += _angularSpeed * lastUpdateDuration.TotalSeconds;
-            Position = Position.Move(RotationRadians, _speed, lastUpdateDuration);
+            Position = Position.Move(RotationRadians, _speed, lastUpdateDuration).Clip(_world.Boundary.TopLeft, _world.Boundary.BottomRight);
         }
 
         public void OnCollision(IWorldObject collidedObject)
