@@ -12,7 +12,7 @@ namespace StayinAlive.World
         private readonly WorldBoundary _boundary;
 
         public IEnumerable<IWorldObject> Objects => UpdateableObjects;
-        public IEnumerable<IUpdateableWorldObject> UpdateableObjects => _population.Concat(_objects.OfType<IUpdateableWorldObject>());
+        public IEnumerable<IUpdateableWorldObject> UpdateableObjects => _population.Concat(_objects.OfType<IUpdateableWorldObject>()).ToArray();
 
         public IEnumerable<ISpecimenInternal> Population => _population;
         public WorldBoundary Boundary => _boundary;

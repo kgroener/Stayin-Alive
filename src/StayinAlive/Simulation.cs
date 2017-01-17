@@ -1,4 +1,5 @@
-﻿using StayinAlive.Interface;
+﻿using StayinAlive.Calculations;
+using StayinAlive.Interface;
 using StayinAlive.Logging;
 using StayinAlive.Models;
 using StayinAlive.World;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.Composition;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace StayinAlive
@@ -78,7 +80,7 @@ namespace StayinAlive
                                 lastUpdateTimestamp = currentTimestamp;
                                 Debug.WriteLine($"FPS: {1 / updateDuration.TotalSeconds}");
 
-                                foreach (var worldObject in _world.UpdateableObjects)
+                                foreach (var worldObject in _world.UpdateableObjects.ToArray())
                                 {
                                     worldObject.Update(updateDuration);
 
