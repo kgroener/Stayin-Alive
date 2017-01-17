@@ -1,6 +1,8 @@
-# Simulation
+# Stayin-Alive
 
-|Type|Stable|Dev|
+## Status info
+
+||Stable|Dev|
 |---|:-:|:-:|
 |Build|![Build status](https://devvy.visualstudio.com/_apis/public/build/definitions/a1626956-4a96-4b5d-850b-d2886d95b82f/4/badge)|![Build status](https://devvy.visualstudio.com/_apis/public/build/definitions/a1626956-4a96-4b5d-850b-d2886d95b82f/3/badge)|
 |Package (interface)| nuget  | [![MyGet Pre Release](https://img.shields.io/myget/stayin-alive/vpre/StayinAlive.Runner.svg)]() |
