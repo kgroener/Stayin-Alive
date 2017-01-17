@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace StayinAlive.Examples
 {
-    [ExportSpecimenFactory]
     public class ExampleSpecimenFactory : ISpecimenFactory
     {
         private ILogger _logger;

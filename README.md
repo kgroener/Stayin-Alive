@@ -15,7 +15,7 @@ We ([@kgroener](https://github.com/kgroener) and [@tomkuijsten](https://github.c
 ## Get started
 If you want to create your own "player" in the game, there are a few easy steps to follow:
 - Get [visual studio](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)
-- Start a new library project (.net 4.6.1 and up, or .netstandard 1.4 and up)
+- Start a new library project (should be a .net 4.6.1 for now)
 - Install the [interface](...) and the [runner](...) packages
 - Create a class and implement the ISpecimenFactory interface
 - Build it
