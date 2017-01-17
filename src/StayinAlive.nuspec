@@ -5,6 +5,7 @@
     <version>1.0.0</version>
     <authors>koengroener,tomkuijsten</authors>
     <projectUrl>https://github.com/kgroener/Stayin-Alive</projectUrl>
+    <licenseUrl>https://github.com/kgroener/Stayin-Alive/blob/dev/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package will allow you to to implement your custom player for the StayinAlive game. In each solution you probably want one project to add the StayingAlive.Runner package as well. Take a look at the documentation on our project page for more installation instructions.</description>
     <dependencies>

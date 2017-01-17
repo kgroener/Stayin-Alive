@@ -5,6 +5,7 @@
     <version>1.0.0</version>
     <authors>koengroener,tomkuijsten</authors>
     <projectUrl>https://github.com/kgroener/Stayin-Alive</projectUrl>
+    <licenseUrl>https://github.com/kgroener/Stayin-Alive/blob/dev/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package will install the UI to run your StayinAlive implementation. All necessary files are copied to the output folder. Take a look at the project page for more installation instructions.</description>
   </metadata>
