@@ -1,10 +1,10 @@
 # Simulation
 
-|Type|Status|
-|---|:-:|
-|Build|![Build status](https://devvy.visualstudio.com/_apis/public/build/definitions/a1626956-4a96-4b5d-850b-d2886d95b82f/3/badge)|
-|NuGet (interface)| coming soon  |
-|NuGet (runner)| coming soon  |
+|Type|Stable|Dev|
+|---|:-:|:-:|
+|Build|![Build status](https://devvy.visualstudio.com/_apis/public/build/definitions/a1626956-4a96-4b5d-850b-d2886d95b82f/4/badge)|![Build status](https://devvy.visualstudio.com/_apis/public/build/definitions/a1626956-4a96-4b5d-850b-d2886d95b82f/3/badge)|
+|Package (interface)| nuget  | myget |
+|Package (runner)| nuget  | myget |
 
 ## Goal
 Our goal is to make developing neural networks fun.
