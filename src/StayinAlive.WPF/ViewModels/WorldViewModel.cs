@@ -47,9 +47,6 @@ namespace StayinAlive.WPF.ViewModels
 
                     polygon.Fill = new SolidColorBrush(Color.FromRgb(worldObject.Color.R, worldObject.Color.G, worldObject.Color.B));
 
-                    var centerX = (worldObject.PolygonPoints.Max((p) => p.X) - worldObject.PolygonPoints.Min((p) => p.X)) / 2;
-                    var centerY = (worldObject.PolygonPoints.Max((p) => p.Y) - worldObject.PolygonPoints.Min((p) => p.Y)) / 2;
-                    polygon.LayoutTransform = new RotateTransform(worldObject.RotationRadians * 180 / Math.PI, centerX, centerY);
 
                     Canvas.SetBottom(polygon, worldObject.Position.Y);
                     Canvas.SetLeft(polygon, worldObject.Position.X);
