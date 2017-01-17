@@ -6,7 +6,7 @@ namespace StayinAlive.World.Spawners
 {
     public sealed class FoodSpawner : IObjectSpawner
     {
-        private const int MAXIMUM_FOOD_IN_WORLD = 100;
+        private const int MAXIMUM_FOOD_IN_WORLD = 30;
 
         public IEnumerable<IWorldObject> GetNewObjectsToSpawn(ISimulationWorld world)
         {

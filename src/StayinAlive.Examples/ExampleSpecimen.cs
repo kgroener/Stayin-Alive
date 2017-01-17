@@ -45,7 +45,7 @@ namespace StayinAlive.Examples
             }
         }
 
-        public RgbColor Color => new RgbColor(255, 0, 0);
+        public RgbColor Color => new RgbColor(0, 0, 255);
 
         public IEnumerable<Vector2> PolygonPoints
         {
@@ -63,13 +63,18 @@ namespace StayinAlive.Examples
 
         public void Update()
         {
-            if (_eyeAttributeFront.DetectedColor.HasValue && _eyeAttributeFront.DetectedColor.Value.R == 255 && _eyeAttributeFront.DetectionDistance.Value < 100)
+            const int COLOR_THRESHOLD = 100;
+
+            if (_eyeAttributeFront.DetectedColor.HasValue
+                && _eyeAttributeFront.DetectedColor.Value.R > COLOR_THRESHOLD
+                && _eyeAttributeFront.DetectionDistance.Value < 100)
             {
                 _motorAttribute.Throttle = -1;
             }
             else if (_eyeAttributeFront.DetectionDistance.HasValue)
             {
-                if (_eyeAttributeFront.DetectedColor.Value.G == 255 && _eyeAttributeFront.DetectionDistance.Value < 100)
+                if (_eyeAttributeFront.DetectedColor.Value.G > COLOR_THRESHOLD
+                    && _eyeAttributeFront.DetectionDistance.Value < 100)
                 {
                     _motorAttribute.Steering = 0;
                     _motorAttribute.Throttle = 1;
@@ -86,27 +91,29 @@ namespace StayinAlive.Examples
                 _motorAttribute.Throttle = 1;
             }
 
-            if (_eyeAttributeLeft.DetectedColor.HasValue && _eyeAttributeLeft.DetectionDistance.Value < 100)
+            if (_eyeAttributeLeft.DetectedColor.HasValue
+                && _eyeAttributeLeft.DetectionDistance.Value < 100)
             {
-                if (_eyeAttributeLeft.DetectedColor.Value.R == 255)
-                {
-                    _motorAttribute.Steering += 1;
-                }
-                else if (_eyeAttributeLeft.DetectedColor.Value.G == 255)
+                if (_eyeAttributeLeft.DetectedColor.Value.R > COLOR_THRESHOLD)
                 {
                     _motorAttribute.Steering += -1;
+                }
+                else if (_eyeAttributeLeft.DetectedColor.Value.G > COLOR_THRESHOLD)
+                {
+                    _motorAttribute.Steering += 1;
                 }
             }
 
-            if (_eyeAttributeRight.DetectedColor.HasValue && _eyeAttributeRight.DetectionDistance.Value < 100)
+            if (_eyeAttributeRight.DetectedColor.HasValue
+                && _eyeAttributeRight.DetectionDistance.Value < 100)
             {
-                if (_eyeAttributeRight.DetectedColor.Value.R == 255)
-                {
-                    _motorAttribute.Steering += -1;
-                }
-                else if (_eyeAttributeRight.DetectedColor.Value.G == 255)
+                if (_eyeAttributeRight.DetectedColor.Value.R > COLOR_THRESHOLD)
                 {
                     _motorAttribute.Steering += 1;
+                }
+                else if (_eyeAttributeRight.DetectedColor.Value.G > COLOR_THRESHOLD)
+                {
+                    _motorAttribute.Steering += -1;
                 }
             }
 
