@@ -29,7 +29,7 @@ namespace StayinAlive.World.Specimen
 
             var specimenAbstracts = _specimenFactories.SelectMany((v) => v.CreateFirstGeneration(allowedGenerationSize).Take(allowedGenerationSize));
 
-            var specimen = specimenAbstracts.Select(s => new Specimen(world, s, SpawnPositionGenerator.CreateRandomWorldPosition(world), _random.NextDouble() * Math.PI * 2));
+            var specimen = specimenAbstracts.Select(s => new Specimen(world, s, SpawnPositionGenerator.CreateRandomWorldPosition(world), _random.NextDouble() * Math.PI * 2, 7));
 
             world.Populate(specimen);
         }
